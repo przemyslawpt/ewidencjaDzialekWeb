@@ -3,9 +3,6 @@
 <head>
 <title>Dzialki Adresy</title>
 <link href="/css/base.css" rel="stylesheet">
-<link href="/bootstrap.min.css" rel="stylesheet">
-<script src="/jquery-2.2.1.min.js"></script>
-<script src="/bootstrap.min.js"></script>
 <script src="js/base.js"></script>
 </head>
 <body>
@@ -28,6 +25,8 @@
 		</table>
 		<button onclick="greeting()">Powitanie</button>
 	</div>
+
+<img src="img/dog.gif" alt="Wesola buzka">
 
 </body>
 </html>

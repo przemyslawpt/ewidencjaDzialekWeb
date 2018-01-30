@@ -12,6 +12,8 @@
         <p>Hello Friend, <a href="/listWeb"><strong>Kliknij</strong></a> zeby zobaczyc Liste adresow</p>
    </div>
 
+<img src="img/dog.gif" alt="Wesola buzka">
+
 </div>
 </body>
 </html>
