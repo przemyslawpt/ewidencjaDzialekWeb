@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: DzialkiWeb
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: pptaszek
+Implementation-Vendor-Id: pl.polska.ptaszek
+Build-Jdk: 1.8.0_101
+Implementation-URL: http://projects.spring.io/spring-boot/Dzialki/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

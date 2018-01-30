@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title> Dzialki</title>
+<link href="/bootstrap.min.css" rel="stylesheet">
+    <script src="/jquery-2.2.1.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+<div class="container" style="margin:50px">
+    <div class="row text-center"><strong> Lista adresow</strong></div>
+        <p>Hello Friend, <a href="/listWeb"><strong>Kliknij</strong></a> zeby zobaczyc Liste adresow</p>
+   </div>
+
+</div>
+</body>
+</html>
