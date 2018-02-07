@@ -12,10 +12,10 @@ public class EwidencjaDzialek {
 	/**
 	 * Rejestr dzialek
 	 */
-	private Map<Osoba, Set<Dzialka>> rejestr;
+	private Map<Osoba, Set<DzialkaStara>> rejestr;
 
 	public EwidencjaDzialek() {
-		rejestr = new HashMap<Osoba, Set<Dzialka>>();
+		rejestr = new HashMap<Osoba, Set<DzialkaStara>>();
 	}
 
 	/**
@@ -24,10 +24,10 @@ public class EwidencjaDzialek {
 	 * @param dzialka
 	 *            dzialka
 	 */
-	public void dodajDzialka(Osoba osoba, Dzialka dzialka) {
-		Set<Dzialka> dzialkiOsoby = rejestr.get(osoba);
+	public void dodajDzialka(Osoba osoba, DzialkaStara dzialka) {
+		Set<DzialkaStara> dzialkiOsoby = rejestr.get(osoba);
 		if (dzialkiOsoby == null) {
-			rejestr.put(osoba, new HashSet<Dzialka>());
+			rejestr.put(osoba, new HashSet<DzialkaStara>());
 		}
 		rejestr.get(osoba).add(dzialka);
 	}
@@ -38,7 +38,7 @@ public class EwidencjaDzialek {
 	 * @param osoba
 	 * @param dzialka
 	 */
-	public void usunDzialka(Osoba osoba, Dzialka dzialka) {
+	public void usunDzialka(Osoba osoba, DzialkaStara dzialka) {
 		if (rejestr.get(osoba) == null) {
 			return;
 		}
@@ -51,19 +51,19 @@ public class EwidencjaDzialek {
 	 * @param osoba
 	 * @return
 	 */
-	public Set<Dzialka> podajDzialki(Osoba osoba) {
+	public Set<DzialkaStara> podajDzialki(Osoba osoba) {
 		return rejestr.get(osoba);
 	}
 
 	public void wyswietlDzialki(Osoba osoba) {
 		System.out.println("------------");
 		System.out.println(osoba);
-		Set<Dzialka> dzialkiOsoby = rejestr.get(osoba);
+		Set<DzialkaStara> dzialkiOsoby = rejestr.get(osoba);
 		if (dzialkiOsoby == null) {
 			return;
 		}
 		System.out.println("------------");
-		for (Dzialka dzialka : dzialkiOsoby) {
+		for (DzialkaStara dzialka : dzialkiOsoby) {
 			System.out.println(dzialka);
 		}
 		System.out.println("------------");
@@ -74,7 +74,7 @@ public class EwidencjaDzialek {
 	 * @return ilosc dzialek dla osoby
 	 */
 	public int podajlIloscDzialek(Osoba osoba) {
-		Set<Dzialka> dzialkiOsoby = rejestr.get(osoba);
+		Set<DzialkaStara> dzialkiOsoby = rejestr.get(osoba);
 		if (dzialkiOsoby == null) {
 			return -1;
 		}

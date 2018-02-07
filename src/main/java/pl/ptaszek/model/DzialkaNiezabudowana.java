@@ -2,7 +2,7 @@ package pl.ptaszek.model;
 
 import java.util.List;
 
-public class DzialkaNiezabudowana extends Dzialka{
+public class DzialkaNiezabudowana extends DzialkaStara{
 	
   private List<PowierzchniaKlasyGruntu> powierzchniaKlasyGruntu;
 

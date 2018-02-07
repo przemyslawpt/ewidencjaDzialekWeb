@@ -1,3 +1,3 @@
 function greeting(){
-    alert("Dzialki werja WEB");
+    alert("Dzialki wersja WEB");
 }

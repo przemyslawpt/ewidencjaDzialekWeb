@@ -7,7 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+/**@Entity
+ 
+ * @author Radek
+ *
+ */
 @Table(name = "adres")
 public class Adres {
 

@@ -1,5 +1,6 @@
 package pl.ptaszek.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -9,12 +10,11 @@ import javax.persistence.Table;
 
 /**
  * Opisuje dzialke.
- *
- 
+
 //@Entity*/
 //@Table(name = "dzialka")
-public class DzialkaZabudowana {
-	
+public class DzialkaStara {
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	/**
@@ -29,17 +29,28 @@ public class DzialkaZabudowana {
 	private Osoba wlasciciel;
 
 	private Adres adres;
-	
-	private ObrebGeodezyjny obredGeodezyjny;
-	
+
+	private ObrebGeodezyjny obrebGeodezyjny;
+
 	private String numberKsiegiWieczystej;
-	
+
+	/**
+	 * Przeznaczenie dzialki jest opisem.
+	 */
+	private String przeznaczenieDzialki;
+
 	List<String> dokumentyPowiazaneLista;
 
-	public DzialkaZabudowana() {
+	List<Wycena> wycenaList;
+
+	private String trzyletnieWykorzystanieOpis;
+	
+	private String obciazeniaOgraniczonymiPrawamiRzeczowymi;
+
+	public DzialkaStara() {
 	}
 
-	public DzialkaZabudowana(String numerEwidencyjny, String wielkoscDzialki, Osoba wlasciciel, Adres adres) {
+	public DzialkaStara(String numerEwidencyjny, String wielkoscDzialki, Osoba wlasciciel, Adres adres) {
 		super();
 		this.numerEwidencyjny = numerEwidencyjny;
 		this.wielkoscDzialki = wielkoscDzialki;
@@ -58,11 +69,11 @@ public class DzialkaZabudowana {
 	public String getWielkoscDzialki() {
 		return wielkoscDzialki;
 	}
-	
+
 	public String getNumberKsiegiWieczystej() {
 		return numberKsiegiWieczystej;
 	}
-	
+
 	public void setNumberKsiegiWieczystej(String numberKsiegiWieczystej) {
 		this.numberKsiegiWieczystej = numberKsiegiWieczystej;
 	}
@@ -108,7 +119,7 @@ public class DzialkaZabudowana {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DzialkaZabudowana other = (DzialkaZabudowana) obj;
+		DzialkaStara other = (DzialkaStara) obj;
 		if (adres == null) {
 			if (other.adres != null)
 				return false;
@@ -131,5 +142,5 @@ public class DzialkaZabudowana {
 			return false;
 		return true;
 	}
- 	
+
 }
