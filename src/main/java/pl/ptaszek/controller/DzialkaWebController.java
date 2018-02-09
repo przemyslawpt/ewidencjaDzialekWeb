@@ -49,13 +49,13 @@ public class DzialkaWebController {
 		dzialka.setObreb(obrebDzialka);
 		dzialka.setUdzialy(udzialyDzialka);
 		dzialka.setNumerEwidencyjny(numerEwidencyjnyDzialka);
+		dzialka.setPowierzchnia(powierzchniaDzialka);
 		dzialkaService.save(dzialka);
 		ModelAndView model = new ModelAndView();
 		model.addObject("dzialka", dzialka);
 		model.setViewName("wyswietlDzialka");
 		return model;
 	}
-
 	@RequestMapping(value = "/listaDzialki", method = RequestMethod.GET)
 	public ModelAndView userDetails() {
 		ModelAndView model = new ModelAndView();
