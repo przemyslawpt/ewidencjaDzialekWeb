@@ -22,4 +22,5 @@ public class AdresServiceImpl implements AdresService {
 	public List<Adres> list() {
 		return adresDao.list();
 	}
+
 }
