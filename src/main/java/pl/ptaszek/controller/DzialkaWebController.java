@@ -19,7 +19,7 @@ public class DzialkaWebController {
 	@Autowired
 	private DzialkaService dzialkaService;
 
-	@GetMapping("getForm")
+	@GetMapping("dodajDzialke")
 	public String getForm() {
 		return "nowaDzialka";
 	}
