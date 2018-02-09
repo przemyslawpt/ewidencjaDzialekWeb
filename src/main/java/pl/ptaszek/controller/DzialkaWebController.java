@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import pl.ptaszek.model.Adres;
 import pl.ptaszek.model.Dzialka;
 import pl.ptaszek.service.DzialkaService;
 
@@ -37,7 +36,8 @@ public class DzialkaWebController {
 		model.addObject("dzialkaList", dzialkaService.findBy(numerEwidencyjnyDzialka, obrebDzialka));
 		model.setViewName("dzialkiLista");
 		return model;
-
+	}
+	
 	@PostMapping("/zapiszDzialka") //
 	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
 			@RequestParam("obrebDzialka") String obrebDzialka,
