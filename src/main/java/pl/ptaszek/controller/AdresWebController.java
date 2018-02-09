@@ -15,7 +15,7 @@ public class AdresWebController {
 	@Autowired
 	private AdresService adresService;
 
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	@RequestMapping(value = "/welcomeAdres", method = RequestMethod.GET)
     public ModelAndView welcome() {
     	Adres adres = new Adres();
     	adres.setKodPocztowy("333");
@@ -25,7 +25,7 @@ public class AdresWebController {
     	return model;
     }
 	
-	@RequestMapping(value = "/listWeb", method = RequestMethod.GET)
+	@RequestMapping(value = "/listWebAdres", method = RequestMethod.GET)
 	public ModelAndView userDetails() {
 		ModelAndView model = new ModelAndView();
     	model.addObject("adresList", adresService.list());
