@@ -1,18 +1,13 @@
 <html>
 <head>
-<title>Zapisz dzialke</title>
+<title>Wyswietl dzialke</title>
 </head>
 <body>
-	<h2>Detale dzialki</h2>
-	<form method="post" action="saveDzialka">
-		// saveDzialka url mapping in DzialkaController Numer : <input
-			type="text" name="numerDzialka" /> Obreb: <input type="text"
-			name="obrebDzialka"> Charakter wladania: <input type="text"
-			name="charakterWladaniaDzialka"> Udzial: <input type="text"
-			name="udzialDzialka"> Obreb: <input type="text"
-			name="obrebDzialka"> Powierzchnia: <input type="text"
-			name="powierzchniaDzialka"> <input type="submit"
-			value="Submit">
-	</form>
+	<h2>Dzialka</h2>
+	<h4>Numer : ${dzialka.numerEwidencyjny}</h4>
+	<h4>Obreb: ${dzialka.obreb}</h4>
+	<h4>Charakter wladania: ${dzialka.charakterWladania}</h4>
+	<h4>Udzial: ${dzialka.udzialy}</h4>
+	<h4>Powierzchnia: ${dzialka.powierzchnia}</h4>
 </body>
 </html>
