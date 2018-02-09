@@ -16,7 +16,7 @@ public class DzialkaDaoImpl implements DzialkaDao {
 
 	@Override
 	public void save(Dzialka dzialka) {
-		sessionFactory.getCurrentSession().save(dzialka);
+		sessionFactory.openSession().save(dzialka);		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -26,7 +26,7 @@ public class DzialkaDaoImpl implements DzialkaDao {
 
 	@Override
 	public Dzialka get(Long id) {
-		return sessionFactory.getCurrentSession().get(Dzialka.class, id);
+		return sessionFactory.openSession().get(Dzialka.class, id);
 
 	}
 

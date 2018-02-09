@@ -25,17 +25,16 @@ public class DzialkaWebController {
 	}
 
 	@PostMapping("/zapiszDzialka") //
-	public ModelAndView saveDetails(@RequestParam("numerDzialka") String numerDzialka,
+	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
 			@RequestParam("obrebDzialka") String obrebDzialka,
 			@RequestParam("charakterWladaniaDzialka") String charakterWladaniaDzialka,
-			@RequestParam("udzialDzialka") String udzialDzialka,
+			@RequestParam("udzialyDzialka") String udzialyDzialka,
 			@RequestParam("powierzchniaDzialka") String powierzchniaDzialka, ModelMap modelMap) {
 		Dzialka dzialka = new Dzialka();
-		dzialka.setNumerEwidencyjny(powierzchniaDzialka);
 		dzialka.setCharakterWladania(charakterWladaniaDzialka);
 		dzialka.setObreb(obrebDzialka);
-		dzialka.setUdzialy(udzialDzialka);
-		dzialka.setNumerEwidencyjny(numerDzialka);
+		dzialka.setUdzialy(udzialyDzialka);
+		dzialka.setNumerEwidencyjny(numerEwidencyjnyDzialka);
 		dzialkaService.save(dzialka);
 		ModelAndView model = new ModelAndView();
 		model.addObject("dzialka", dzialka);
