@@ -20,10 +20,24 @@ public class DzialkaWebController {
 	private DzialkaService dzialkaService;
 
 	@GetMapping("dodajDzialke")
-	public String getForm() {
+	public String getnowaDzialkaform() {
 		return "nowaDzialka";
 	}
+	
+	@GetMapping("wyszukaj")
+	public String getwyszukajDzialkaform() {
+		return "wyszukajDzialka";
+	}
+	
+	@PostMapping("/wyszukajDzialka") //
+	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
+			@RequestParam("obrebDzialka") String obrebDzialka,ModelMap modelMap) {
+		ModelAndView model = new ModelAndView();
+		model.addObject("dzialkaList", dzialkaService.findBy(numerEwidencyjnyDzialka, obrebDzialka));
+		model.setViewName("dzialkiLista");
+		return model;
 
+	}
 	@PostMapping("/zapiszDzialka") //
 	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
 			@RequestParam("obrebDzialka") String obrebDzialka,
@@ -35,13 +49,13 @@ public class DzialkaWebController {
 		dzialka.setObreb(obrebDzialka);
 		dzialka.setUdzialy(udzialyDzialka);
 		dzialka.setNumerEwidencyjny(numerEwidencyjnyDzialka);
+		dzialka.setPowierzchnia(powierzchniaDzialka);
 		dzialkaService.save(dzialka);
 		ModelAndView model = new ModelAndView();
 		model.addObject("dzialka", dzialka);
 		model.setViewName("wyswietlDzialka");
 		return model;
 	}
-
 	@RequestMapping(value = "/listaDzialki", method = RequestMethod.GET)
 	public ModelAndView userDetails() {
 		ModelAndView model = new ModelAndView();
@@ -49,5 +63,6 @@ public class DzialkaWebController {
 		model.setViewName("dzialkiLista");
 		return model;
 	}
+	
 
 }

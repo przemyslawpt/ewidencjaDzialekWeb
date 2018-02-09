@@ -27,4 +27,9 @@ public class DzialkaServiceImpl implements DzialkaService {
 		return dzialkaDao.list();
 	}
 
+	@Override
+	public List<Dzialka> findBy(String numerEwidencyjny, String obreb) {
+		return dzialkaDao.findBy(numerEwidencyjny, obreb);
+	}
+
 }

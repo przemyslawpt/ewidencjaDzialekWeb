@@ -10,5 +10,7 @@ public interface DzialkaService {
 
 	Dzialka get(Long id);
 	
+	List<Dzialka> findBy(String numerEwidencyjny, String obreb);
+	
 	List<Dzialka> list();
 }
