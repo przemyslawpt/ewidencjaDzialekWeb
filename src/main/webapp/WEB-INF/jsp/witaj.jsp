@@ -12,7 +12,7 @@
 				<strong>Dodaj dzialke</strong>
 			</div>
 			<p>
-				Hello Friend, <a href="dodajDzialke"><strong>Kliknij</strong></a>
+				Hello Friend strona, <a href="dodajDzialke"><strong>Kliknij</strong></a>
 				zeby dodac dzialke
 			</p>
 		</div>
