@@ -18,7 +18,7 @@ public class DzialkaZabudowana {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	/**
-	 * Numer ewidencyjny dzialki. Polski standard UFE-223.
+	 * Numer ewidencyjny dzialki. Polski standard UFE-223.xc\xzcZxc
 	 */
 	private String numerEwidencyjny;
 	/**
