@@ -23,21 +23,21 @@ public class DzialkaWebController {
 	public String getnowaDzialkaform() {
 		return "nowaDzialka";
 	}
-	
+
 	@GetMapping("wyszukaj")
 	public String getwyszukajDzialkaform() {
 		return "wyszukajDzialka";
 	}
-	
+
 	@PostMapping("/wyszukajDzialka") //
 	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
-			@RequestParam("obrebDzialka") String obrebDzialka,ModelMap modelMap) {
+			@RequestParam("obrebDzialka") String obrebDzialka, ModelMap modelMap) {
 		ModelAndView model = new ModelAndView();
 		model.addObject("dzialkaList", dzialkaService.findBy(numerEwidencyjnyDzialka, obrebDzialka));
 		model.setViewName("dzialkiLista");
 		return model;
 	}
-	
+
 	@PostMapping("/zapiszDzialka") //
 	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
 			@RequestParam("obrebDzialka") String obrebDzialka,
@@ -56,6 +56,7 @@ public class DzialkaWebController {
 		model.setViewName("wyswietlDzialka");
 		return model;
 	}
+
 	@RequestMapping(value = "/listaDzialki", method = RequestMethod.GET)
 	public ModelAndView userDetails() {
 		ModelAndView model = new ModelAndView();
@@ -63,12 +64,12 @@ public class DzialkaWebController {
 		model.setViewName("dzialkiLista");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public ModelAndView welcome() {
+	public ModelAndView welcome() {
 		ModelAndView model = new ModelAndView();
-    	model.setViewName("witaj");
-    	return model;
-    }
+		model.setViewName("witaj");
+		return model;
+	}
 
 }
