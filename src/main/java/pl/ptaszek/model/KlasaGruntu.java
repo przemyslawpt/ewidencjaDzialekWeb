@@ -9,6 +9,7 @@ public class KlasaGruntu {
 	private String klasaBonitacyjna;
 	private String oznaczenieKlasy;
 	private String wartoscGruntu;
+	private String test;
 
 	public KlasaGruntu(String rodzajGruntu, String klasaBonitacyjna, String oznaczenieKlasy) {
 		super();
