@@ -8,6 +8,7 @@ public class KlasaGruntu {
 	private String rodzajGruntu;
 	private String klasaBonitacyjna;
 	private String oznaczenieKlasy;
+	private String wartoscGruntu;
 
 	public KlasaGruntu(String rodzajGruntu, String klasaBonitacyjna, String oznaczenieKlasy) {
 		super();
@@ -50,6 +51,14 @@ public class KlasaGruntu {
 		return result;
 	}
 
+	public String getWartoscGruntu() {
+		return wartoscGruntu;
+	}
+
+	public void setWartoscGruntu(String wartoscGruntu) {
+		this.wartoscGruntu = wartoscGruntu;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
