@@ -7,7 +7,9 @@
 </head>
 <body>
 	<div>
-
+	Lista Działek
+	</div>
+	<div>
 		<table>
 			<tr>
 				<th class="th1"><strong>Miejscowosc</strong>
@@ -25,8 +27,9 @@
 		</table>
 		<button onclick="greeting()">Powitanie</button>
 	</div>
-
-<img src="img/dog.gif" alt="Wesola buzka">
+	<div>
+	<img src="img/dog.gif" alt="Wesola buzka">
+	</div>
 
 </body>
 </html>
