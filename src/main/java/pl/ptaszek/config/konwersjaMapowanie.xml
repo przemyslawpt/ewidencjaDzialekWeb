@@ -1,0 +1,26 @@
+<beanio xmlns="http://www.beanio.org/2012/03" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+
+  <stream name="Dzialki" format="csv">
+      <parser>
+      <property name="delimiter" value=";" />
+    </parser>
+    <record name="employee" class="pl.ptaszek.model.Dzialka">
+      <field name="obreb" position="1"/>
+      <field name="numerEwidencyjny" position="2"/>
+      <field name="powierzchniaDzialki" position="4"/>
+      <field name="charakterWladania" position="6"/>
+      <field name="udzialy" position="7"/>
+      <field name="wlasnoscRodzajDokumentu" position="11"/>
+      <field name="wlasnoscNumerDokumentu" position="12"/>
+      <field name="oszacowanaWartosc" position="14"/>
+      <field name="powierzchniaZabudowy" position="58"/>
+      <field name="aktualneWykorzystanie" position="59"/>
+      <field name="planWykorzystaniaLata" position="60"/>
+      <field name="przeznaczenie" position="61"/>
+      <field name="uwagi" position="62"/>
+      <field name="skladKomisji" position="63"/>
+    </record>
+  </stream>
+</beanio>

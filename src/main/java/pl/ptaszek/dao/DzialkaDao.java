@@ -13,4 +13,6 @@ public interface DzialkaDao {
 	List<Dzialka> findBy(String numerEwidencyjny, String obreb);
 	
 	List<Dzialka> list();
+	
+	void saveAll(List<Dzialka> dzialkaList);
 }
