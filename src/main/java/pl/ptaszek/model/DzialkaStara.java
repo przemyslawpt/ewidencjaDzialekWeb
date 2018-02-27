@@ -18,7 +18,11 @@ public class DzialkaStara {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	/**
+<<<<<<< HEAD
+	 * Numer ewidencyjny dzialki. Polski standard UFE-223.zmianay zmianainaniai
+=======
 	 * Numer ewidencyjny dzialki. Polski standard UFE-223.asdasdasdasdasd
+>>>>>>> refs/remotes/origin/master
 	 */
 	private String numerEwidencyjny;
 	/**
