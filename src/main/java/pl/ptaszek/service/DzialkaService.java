@@ -8,6 +8,8 @@ public interface DzialkaService {
 
 	void save(Dzialka dzialka);
 
+	void saveAll(List<Dzialka> dzialkaList);
+	
 	Dzialka get(Long id);
 	
 	List<Dzialka> findBy(String numerEwidencyjny, String obreb);

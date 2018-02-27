@@ -32,4 +32,10 @@ public class DzialkaServiceImpl implements DzialkaService {
 		return dzialkaDao.findBy(numerEwidencyjny, obreb);
 	}
 
+	@Override
+	public void saveAll(List<Dzialka> dzialkaList) {
+		dzialkaDao.saveAll(dzialkaList);
+		
+	}
+
 }
