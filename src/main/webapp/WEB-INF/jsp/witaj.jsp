@@ -1,33 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Witaj</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nobile:400,700i|Oswald:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body>
-		<div>
-			<div style="border:1px solid black;width:20%;min-width=100px;float:left;"> 	
-			<img src="img/herb.jpeg" style="max-height:100%;max-width:100%;" />
-			</div>
-		
-			<div style="border:1px solid black;width:80%;">
-			
-			Witaj uzytkowniku z gminy pokoj.
-		
-		</div>
-		
-				
-		
-			<div style="border:1px solid black;min-width=50%;float:left;">
-				<strong>Dodaj dzialke</strong>
-				<p>
-				Hello Friend strona, <a href="dodajDzialke"><strong>Kliknij</strong></a>
-				zeby dodac dzialke
-				</p>
-			</div>
-		
-			<div style="border:1px solid black;min-width=50%;">
-				<strong> Wyszukaj dzialke</strong>
-				<p>
-				Hello Friend, <a href="/listaDzialki"><strong>Kliknij</strong></a>
-				zeby zobaczyc Liste adresow
-				</p>
-			</div>
-		</div>
-		
+    <header>
+        <hgroup>
+            <h1>Witaj w zautomatyzowanej bazie działek</h1>
+            <h4><p>Aby zacząć korzystać z bazy</p>
+            <a href="logowanie.html">ZALOGUJ SIĘ</a> </h4>
+        </hgroup>
+        <img src="img/mapazpinezka.jpg">
+    </header>
+
 </body>
 </html>
