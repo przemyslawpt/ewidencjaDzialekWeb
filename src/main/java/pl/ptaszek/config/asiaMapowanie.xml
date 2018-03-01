@@ -6,11 +6,8 @@
       <parser>
       <property name="delimiter" value=";" />
     </parser>
-    <record name="text" >
-    	<text="Raport wygenerowano stan z dnia">
-    	</text>
-    </record>
-    <record name="employee" class="pl.ptaszek.model.Dzialka" position="2">
+
+    <record name="employee" class="pl.ptaszek.model.Dzialka">
       <field name="obreb" position="1"/>
       <field name="numerEwidencyjny" position="2"/>
       <field name="powierzchniaDzialki" position="4"/>
