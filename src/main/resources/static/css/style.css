@@ -1,0 +1,336 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    font-size: 10px;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    font-family: 'Oswald', sans-serif;
+    z-index: 1;
+}
+
+header img {
+    position: absolute;
+    bottom: 0;
+    height: 90%;
+    right: 0;
+}
+
+header hgroup {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 5rem;
+
+}
+
+header h4 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    line-height: 6.5rem;
+    text-transform: uppercase;
+}
+
+div#panel {
+    font-family: 'Oswald';
+    font-size: 3rem;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 30vh;
+    padding: 15px 0 0;
+    background: #fff;
+    position: relative;
+    border: 1px solid silver;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    -webkit-box-shadow: 0 0 2px silver;
+    -moz-box-shadow: 0 0 2px silver;
+    box-shadow: 0 0 2px silver;
+    z-index: 2;
+}
+
+#panel form {
+    margin: 0;
+
+}
+
+#panel label {
+    display: block;
+    width: 260px;
+    padding: 10px 20px;
+    color: #696969;
+    font-size: 16px;
+    text-shadow: 0 0 1px silver;
+}
+
+#username,
+#password {
+    display: block;
+    width: 360px;
+    margin: 0 auto;
+    padding: 10px 5px;
+    border: 1px solid silver;
+    outline: 5px solid #ebebeb;
+    font-size: 22px;
+}
+
+#username:focus,
+#password:focus {
+    outline: 5px solid #e5f2f8;
+}
+
+#lower {
+    background: #ecf2f5;
+    width: 100%;
+    padding: 15px 0 0;
+    margin-top: 20px;
+
+}
+
+.check {
+    display: inline;
+    float: none;
+    font-size: 2.5rem;
+    left: 15px;
+    text-transform: uppercase;
+}
+
+header input[type=submit] {
+    font-family: 'Oswald';
+    font-size: 2.5rem;
+    height: 70px;
+    width: 230px;
+    padding: 10px 30px;
+    border: 1px solid #005f85;
+    color: black;
+    text-shadow: 0 0 1px black;
+    background: #99ccff;
+
+}
+
+header input[type=login] {
+    display: block;
+    margin: 0 auto;
+    font-family: 'Oswald';
+    font-size: 2.5rem;
+    height: 40px;
+    width: 80px;
+    padding: 10px 20px;
+    border: 1px solid #005f85;
+    color: black;
+    text-shadow: 0 0 1px black;
+    background: #99ccff;
+    position: relative;
+    left: 160px;
+    bottom: 10px;
+}
+
+header input[type=checkbox] {
+    display: inline-block;
+    padding: 0 auto;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: 15px;
+}
+
+#Tytul {
+    position: relative;
+    font-family: 'Oswald';
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#Podtytul {
+    position: relative;
+    font-family: 'Oswald';
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 8px;
+}
+
+#menu {
+    position: relative;
+    font-family: 'Oswald';
+    height: 60vh;
+    width:10%;
+    float: left;
+    text-align: left;
+    padding: 2vw 2.5vw;
+    top:10vh;
+
+    }
+
+#m {
+    font-size: 4rem; 
+}
+
+#wyswietl,
+#wyszukaj,
+#dodaj {
+    font-size: 2.2rem
+}
+
+
+#tabela {
+    position: relative;
+    display: table;
+    table-layout:auto;
+    width: 84%;
+    min-height: 5%;
+    margin-top: 5%;
+    float: left;
+    border-collapse: collapse;
+    border: 1px solid silver;
+    font-size: 1rem;
+    text-align: center;       
+}
+#tabela th{
+    font-family: 'Oswald';
+    height: 80px;
+    padding: 1px;
+    border: 2px solid silver;
+    box-shadow: 0 2px 5px #d1d1d1;
+}
+#tabela td{
+    font-size: 1.2rem;
+    text-align: left;
+    vertical-align: bottom;
+    height: 40px;
+    padding: 1px;
+    border: 1px solid silver;
+}
+#herb{
+    position: relative;
+    height: 110px;
+    float: left;
+    margin-top: 0px;
+    margin-left: 10px;
+    z-index: 2;
+    
+}
+#detale{
+    position: relative;
+    font-family: 'Oswald';
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align:left;
+    margin-left: 20vw;
+}
+#labels{
+    position: relative;
+    display: table;
+    font-family: 'Oswald';
+    margin-left: 20vw;
+    letter-spacing: -1px;
+}
+#labels th{
+    font-size: 1.7rem;
+    text-align: right;
+    vertical-align: middle;
+    padding: 5px 5px;
+    width: 30vw;
+    height: vh;
+    border: 1px solid silver;
+    border-radius: 3px;
+    color: darkslategray;
+    background-color: #f0f0f0;
+}
+#labels input{
+    display: block;
+    width: 40vw;
+    margin: 0 auto;
+    padding: 10px 5px;
+    border: 1px solid silver;
+    font-size: 2rem;
+    
+}
+#zapisz{
+    position: relative;
+    float: right;
+    margin-top: 15px;
+    margin-right: 15vw;
+    width: 10vw;
+    padding: 5px 10px;
+    font-family: 'Oswald';
+    font-size: 3rem;
+    font-style: bold;
+    text-align: center;
+    color: darkslategray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
