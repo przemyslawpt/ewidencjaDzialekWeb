@@ -14,7 +14,7 @@
         <hgroup>
             <h1>Witaj w zautomatyzowanej bazie działek</h1>
             <h4><p>Aby zacząć korzystać z bazy</p>
-            <a href="logowanie.html">ZALOGUJ SIĘ</a> </h4>
+            <a href="/loginPage">ZALOGUJ SIĘ</a>
         </hgroup>
         <img src="img/mapazpinezka.jpg">
     </header>

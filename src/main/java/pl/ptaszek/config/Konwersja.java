@@ -18,11 +18,7 @@ import java.util.List;
  */
 public class Konwersja {
 
-<<<<<<< HEAD
-	private static final String PATH = "C:\\dzialki\\ewidencjaDzialekWeb\\src\\main\\java\\pl\\ptaszek\\config\\";
-=======
 	private static final String PATH = "C:\\Users\\Radek\\ewidencjaDzialekWeb\\src\\main\\java\\pl\\ptaszek\\config\\";
->>>>>>> branch 'master' of https://github.com/przemyslawpt/ewidencjaDzialekWeb.git
 	
 	public static List<Dzialka> stworzDzialkiZPliku() {
 		List<Dzialka> dzialkaList = new ArrayList<>();
@@ -63,7 +59,7 @@ public class Konwersja {
 		System.out.println("Gdzie jest plik ? Bierz sie do roboty leniu.");
 	}
 	
-	public static void main(String[] argc) {
+	public static void mgain(String[] argc) {
 		wydrukujListaDzialek(); 
         Integer licznik = 0;
 //        for(Dzialka dzialka: dzialkaList) {

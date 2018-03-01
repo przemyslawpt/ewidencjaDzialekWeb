@@ -16,7 +16,6 @@ header {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    font-family: 'Oswald', sans-serif;
     z-index: 1;
 }
 
@@ -47,7 +46,6 @@ header h4 {
 }
 
 div#panel {
-    font-family: 'Oswald';
     font-size: 3rem;
     width: 500px;
     margin: 0 auto;
@@ -111,7 +109,6 @@ div#panel {
 }
 
 header input[type=submit] {
-    font-family: 'Oswald';
     font-size: 2.5rem;
     height: 70px;
     width: 230px;
@@ -126,7 +123,6 @@ header input[type=submit] {
 header input[type=login] {
     display: block;
     margin: 0 auto;
-    font-family: 'Oswald';
     font-size: 2.5rem;
     height: 40px;
     width: 80px;
@@ -151,7 +147,6 @@ header input[type=checkbox] {
 
 #Tytul {
     position: relative;
-    font-family: 'Oswald';
     font-size: 4rem;
     text-align: center;
     margin-top: 25px;
@@ -159,7 +154,6 @@ header input[type=checkbox] {
 
 #Podtytul {
     position: relative;
-    font-family: 'Oswald';
     font-size: 3rem;
     text-align: center;
     margin-top: 8px;
@@ -167,7 +161,6 @@ header input[type=checkbox] {
 
 #menu {
     position: relative;
-    font-family: 'Oswald';
     height: 60vh;
     width: 10%;
     float: left;
@@ -203,7 +196,6 @@ header input[type=checkbox] {
 }
 
 #tabela th {
-    font-family: 'Oswald';
     height: 80px;
     padding: 1px;
     border: 2px solid silver;
@@ -231,7 +223,6 @@ header input[type=checkbox] {
 
 #detale {
     position: relative;
-    font-family: 'Oswald';
     font-size: 2.5rem;
     text-transform: uppercase;
     text-align: left;
@@ -241,7 +232,6 @@ header input[type=checkbox] {
 #labels {
     position: relative;
     display: table;
-    font-family: 'Oswald';
     margin-left: 20vw;
     letter-spacing: -1px;
 }
@@ -276,7 +266,6 @@ header input[type=checkbox] {
     margin-right: 15vw;
     width: 10vw;
     padding: 5px 10px;
-    font-family: 'Oswald';
     font-size: 3rem;
     font-style: bold;
     text-align: center;
