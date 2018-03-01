@@ -1,12 +1,9 @@
 package pl.ptaszek.model;
 
-import java.math.BigDecimal;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
 
 /**
  * Opisuje dzialke.
@@ -18,7 +15,11 @@ public class DzialkaStara {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	/**
+<<<<<<< HEAD
+	 * Numer ewidencyjny dzialki. Polski standard UFE-223.zmianay zmianainaniai
+=======
 	 * Numer ewidencyjny dzialki. Polski standard UFE-223.asdasdasdasdasd
+>>>>>>> refs/remotes/origin/master
 	 */
 	private String numerEwidencyjny;
 	/**

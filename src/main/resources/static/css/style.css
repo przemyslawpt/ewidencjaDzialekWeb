@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    font-size: 10px;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    font-family: 'Oswald', sans-serif;
+    z-index: 1;
+}
+
+header img {
+    position: absolute;
+    bottom: 0;   
+    height: 90%;
+    right: 0;
+}
+
+header hgroup {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 5rem;
+
+}
+
+header h4 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    line-height: 6.5rem;
+    text-transform: uppercase;
+}
+
+div#panel {
+    font-family: 'Oswald';
+    font-size: 3rem;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 30vh;
+    padding: 15px 0 0;
+    background: #fff;
+    position: relative;
+    border: 1px solid silver;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    -webkit-box-shadow: 0 0 2px silver;
+    -moz-box-shadow: 0 0 2px silver;
+    box-shadow: 0 0 2px silver;
+    z-index: 2;
+}
+
+form {
+    margin: 0;
+
+}
+
+label {
+    display: block;
+    width: 260px;
+    padding: 10px 20px;
+    color: #696969;
+    font-size: 16px;
+    text-shadow: 0 0 1px silver;
+}
+
+#username,
+#password {
+    display: block;
+    width: 360px;
+    margin: 0 auto;
+    padding: 10px 5px;
+    border: 1px solid silver;
+    outline: 5px solid #ebebeb;
+    font-size: 22px;
+}
+
+#username:focus,
+#password:focus {
+    outline: 5px solid #e5f2f8;
+}
+
+#lower {
+    background: #ecf2f5;
+    width: 100%;
+    padding: 15px 0 0;
+    margin-top: 20px;
+
+}
+
+.check {
+    display: inline;
+    float: none;
+    font-size: 2.5rem;
+    position: relative;
+    left: 15px;
+    text-transform: uppercase;
+
+}
+
+header input[type=submit] {
+    font-family: 'Oswald';
+    font-size: 2.5rem;
+    height: 70px;
+    width: 230px;
+    padding: 10px 30px;
+    border: 1px solid #005f85;
+    color: black;
+    text-shadow: 0 0 1px black;
+    background: #99ccff;
+
+}
+
+header input[type=login] {
+    display: block;
+    margin: 0 auto;
+    font-family: 'Oswald';
+    font-size: 2.5rem;
+    height: 40px;
+    width: 80px;
+    padding: 10px 20px;
+    border: 1px solid #005f85;
+    color: black;
+    text-shadow: 0 0 1px black;
+    background: #99ccff;
+    position: relative;
+    left: 160px;
+    bottom: 10px;
+}
+
+header input[type=checkbox] {
+    display: inline-block;
+    padding: 0 auto;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: 15px;
+}
+
+#Tytul {
+    font-family: 'Oswald';
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#menu {
+    font-family: 'Oswald';
+    width: 20%;
+    height: 100%;
+    float: left;
+    text-align:left;
+    margin-top: 50px;   
+    }    
+#menu thead{
+    position: relative;
+    font-size: 5rem;
+}
+#menu tbody{
+    position: absolute;
+    margin-top: 50px;
+    font-size: 2.5rem;  
+    border-collapse: separate;
+    border-spacing: 10px;    
+    
+}
+
+#tabela {
+    width: 80%;
+    font-family: 'Oswald';
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 50px;
+    float: left;
+    z-index: 2;
+}
+
+ 

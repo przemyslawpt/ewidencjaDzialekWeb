@@ -1,32 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-<title>Dzialki</title>
-<link href="/bootstrap.min.css" rel="stylesheet">
-<script src="/jquery-2.2.1.min.js"></script>
-<script src="/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Witaj</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nobile:400,700i|Oswald:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-	<div>
-		<div class="container" style="margin: 50px">
-			<div class="row text-center">
-				<strong>Dodaj dzialke</strong>
-			</div>
-			<p>
-				Hello Friend, <a href="dodajDzialke"><strong>Kliknij</strong></a>
-				zeby dodac dzialke
-			</p>
-		</div>
-		<div class="row text-center">
-			<strong> Wyszukaj dzialke</strong>
-		</div>
-		<p>
-			Hello Friend, <a href="/listaDzialki"><strong>Kliknij</strong></a>
-			zeby zobaczyc Liste adresow
-		</p>
-	</div>
+    <header>
+        <hgroup>
+            <h1>Witaj w zautomatyzowanej bazie działek</h1>
+            <h4><p>Aby zacząć korzystać z bazy</p>
+            <a href="logowanie.html">ZALOGUJ SIĘ</a> </h4>
+        </hgroup>
+        <img src="img/mapazpinezka.jpg">
+    </header>
 
-	<img src="img/dog.gif" alt="Wesola buzka">
-
-	</div>
 </body>
 </html>
