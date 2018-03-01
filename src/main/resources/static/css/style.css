@@ -169,16 +169,16 @@ header input[type=checkbox] {
     position: relative;
     font-family: 'Oswald';
     height: 60vh;
-    width:10%;
+    width: 10%;
     float: left;
     text-align: left;
     padding: 2vw 2.5vw;
-    top:10vh;
+    top: 10vh;
 
-    }
+}
 
 #m {
-    font-size: 4rem; 
+    font-size: 4rem;
 }
 
 #wyswietl,
@@ -191,7 +191,7 @@ header input[type=checkbox] {
 #tabela {
     position: relative;
     display: table;
-    table-layout:auto;
+    table-layout: auto;
     width: 84%;
     min-height: 5%;
     margin-top: 5%;
@@ -199,16 +199,18 @@ header input[type=checkbox] {
     border-collapse: collapse;
     border: 1px solid silver;
     font-size: 1rem;
-    text-align: center;       
+    text-align: center;
 }
-#tabela th{
+
+#tabela th {
     font-family: 'Oswald';
     height: 80px;
     padding: 1px;
     border: 2px solid silver;
     box-shadow: 0 2px 5px #d1d1d1;
 }
-#tabela td{
+
+#tabela td {
     font-size: 1.2rem;
     text-align: left;
     vertical-align: bottom;
@@ -216,31 +218,35 @@ header input[type=checkbox] {
     padding: 1px;
     border: 1px solid silver;
 }
-#herb{
+
+#herb {
     position: relative;
     height: 110px;
     float: left;
     margin-top: 0px;
     margin-left: 10px;
     z-index: 2;
-    
+
 }
-#detale{
+
+#detale {
     position: relative;
     font-family: 'Oswald';
     font-size: 2.5rem;
     text-transform: uppercase;
-    text-align:left;
+    text-align: left;
     margin-left: 20vw;
 }
-#labels{
+
+#labels {
     position: relative;
     display: table;
     font-family: 'Oswald';
     margin-left: 20vw;
     letter-spacing: -1px;
 }
-#labels th{
+
+#labels th {
     font-size: 1.7rem;
     text-align: right;
     vertical-align: middle;
@@ -252,16 +258,18 @@ header input[type=checkbox] {
     color: darkslategray;
     background-color: #f0f0f0;
 }
-#labels input{
+
+#labels input {
     display: block;
     width: 40vw;
     margin: 0 auto;
     padding: 10px 5px;
     border: 1px solid silver;
     font-size: 2rem;
-    
+
 }
-#zapisz{
+
+#zapisz {
     position: relative;
     float: right;
     margin-top: 15px;
@@ -274,63 +282,3 @@ header input[type=checkbox] {
     text-align: center;
     color: darkslategray;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
