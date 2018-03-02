@@ -59,7 +59,6 @@ div#panel {
     font-size: 2rem;
     letter-spacing: -1px;
     -webkit-box-shadow: 0 0 2px silver;
-    -moz-box-shadow: 0 0 2px silver;
     box-shadow: 0 0 2px silver;
     z-index: 2;
 }
@@ -167,52 +166,74 @@ header input[type=checkbox] {
 
 #menu {
     position: relative;
+    display: block;
     font-family: 'Oswald';
-    height: 60vh;
-    width: 10%;
+    height: 100vh;
+    width: 10vw;
     float: left;
     text-align: left;
-    padding: 2vw 2.5vw;
+    padding: 1vw 1vw;
     top: 10vh;
 
 }
 
 #m {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #wyswietl,
 #wyszukaj,
 #dodaj {
-    font-size: 2.2rem
+    font-size: 1.7rem
 }
 
 
 #tabela {
     position: relative;
     display: table;
-    table-layout: auto;
-    width: 84%;
+    table-layout: fixed;
+    width: 84vw;
     min-height: 5%;
     margin-top: 5%;
-    float: left;
+    float: right;
     border-collapse: collapse;
     border: 1px solid silver;
-    font-size: 1rem;
+    font-size: 1.3rem;
     text-align: center;
 }
 
 #tabela th {
     font-family: 'Oswald';
-    height: 80px;
+    height: 60px;
     padding: 1px;
     border: 2px solid silver;
+    -webkit-box-shadow: 0 2px 5px #d1d1d1;
     box-shadow: 0 2px 5px #d1d1d1;
+    overflow-x: hidden;
+}
+#th1{
+    width: 1vw;
+}
+#th6{
+    width: 4vw;
+}
+#th7{
+    width: 3vw;
+}
+#th8, #th9, #th10{
+    width:4vw
+}
+#th11{
+    width: 4.5vw;
+}
+#th13{
+    width: 5vw;
 }
 
 #tabela td {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-align: left;
+    text-overflow:clip;
     vertical-align: bottom;
     height: 40px;
     padding: 1px;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
         Zautomatyzowana baza działek dla Gminy Pokój
     </div>
     <div id="Podtytul">
-        Dodaj działkę do ewidencji
+        Podgląd danych dla działki
     </div>
     <div id="menu">
         <table>
@@ -37,7 +37,7 @@
         </table>
     </div>
     <div id="detale">
-        Detale działki:
+        Dane działki:
     </div>
     <div>
         <form method="post" action="zapiszDzialka">
@@ -104,7 +104,6 @@
                 </tr>
             </table>
     </div>
-    <input type="button" id="zapisz" value="Zapisz">
     </form>
 </body>
 
