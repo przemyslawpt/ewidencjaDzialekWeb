@@ -18,8 +18,8 @@ import java.util.List;
  */
 public class Konwersja {
 
-
-	private static final String PATH = "C:\\ewidencjaDzialekWeb\\ewidencjaDzialekWeb\\src\\main\\java\\pl\\ptaszek\\config\\";
+	
+	private static final String PATH = "C:\\Users\\Radek\\ewidencjaDzialekWeb\\src\\main\\java\\pl\\ptaszek\\config\\";
 	
 	public static List<Dzialka> stworzDzialkiZPliku() {
 		List<Dzialka> dzialkaList = new ArrayList<>();
@@ -60,7 +60,7 @@ public class Konwersja {
 		System.out.println("Gdzie jest plik ? Bierz sie do roboty leniu.");
 	}
 	
-	public static void mgain(String[] argc) {
+	public static void main(String[] argc) {
 		wydrukujListaDzialek(); 
         Integer licznik = 0;
 //        for(Dzialka dzialka: dzialkaList) {
