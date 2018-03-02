@@ -86,7 +86,7 @@ public class DzialkaWebController {
 			System.out.println("----");
 		}
 		model.addObject("dzialkaList", result);
-		model.setViewName("dzialkiLista");
+		model.setViewName("listaDzialek");
 		return model;
 	}
 
@@ -94,6 +94,20 @@ public class DzialkaWebController {
 	public ModelAndView welcome() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("witaj");
+		return model;
+	}
+	
+	@RequestMapping(value = "/dodajDzialka", method = RequestMethod.GET)
+	public ModelAndView dodajDzialka() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("dodajDzialke");
+		return model;
+	}
+	
+	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
+	public ModelAndView loginPage() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("logowanie");
 		return model;
 	}
 	

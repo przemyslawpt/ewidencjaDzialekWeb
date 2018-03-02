@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="pl">
 
 <head>
@@ -37,6 +38,10 @@
         </table>
     </div>
     <div>
+       <c:forEach items="${dzialkaList}" var="entry">
+        ${entry.numerEwidencyjny}<br>
+        ${entry.obreb}<br>
+    </c:forEach>
         <table id="tabela">
                 <tr>
                     <th id="th1">Id</th>
@@ -78,6 +83,7 @@
                     </th>
                     <th id="th16">Opcje</th>
                 </tr>
+               
                 <tr>   
                     <td>
                     1    
