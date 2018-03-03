@@ -97,6 +97,20 @@ public class DzialkaWebController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/dodajDzialka", method = RequestMethod.GET)
+	public ModelAndView dodajDzialka() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("dodajDzialke");
+		return model;
+	}
+	
+	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
+	public ModelAndView loginPage() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("logowanie");
+		return model;
+	}
+	
 	@RequestMapping(value = "/konwersja", method = RequestMethod.GET)
 	public ModelAndView konwersja() {
 		List<Dzialka> result = Konwersja.stworzDzialkiZPliku();
