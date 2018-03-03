@@ -60,7 +60,7 @@ public class DzialkaWebController {
 		return model;
 	}
 
-	@RequestMapping(value = "/listaDzialki", method = RequestMethod.GET)
+	@RequestMapping(value = "/listaDzialek", method = RequestMethod.GET)
 	public ModelAndView userDetails() {
 		ModelAndView model = new ModelAndView();
         Integer licznik = 0;
