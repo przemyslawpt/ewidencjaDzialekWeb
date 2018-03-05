@@ -63,28 +63,8 @@ public class DzialkaWebController {
 	@RequestMapping(value = "/listaDzialek", method = RequestMethod.GET)
 	public ModelAndView userDetails() {
 		ModelAndView model = new ModelAndView();
-        Integer licznik = 0;
+		Integer licznik = 0;
 		List<Dzialka> result = dzialkaService.list();
-		for (Dzialka dzialka : result) {
-			System.out.println("----");
-			System.out.println("Nr " + licznik++);
-			System.out.println("Obreb: " + dzialka.getObreb());
-			System.out.println("Numer ewidencyjny: " + dzialka.getNumerEwidencyjny());
-			System.out.println("rodzajDokumentyPotwierdzajacyWlasnosc: " + dzialka.getWlasnoscRodzajDokumentu());
-			System.out.println("numerDokumentuPotwierdzajacyWlasnosc: " + dzialka.getWlasnoscNumerDokumentu());
-			System.out.println("charakterWladania: " + dzialka.getCharakterWladania());
-			System.out.println("udzialy: " + dzialka.getUdzialy());
-			System.out.println("powierzchniaDzialki: " + dzialka.getPowierzchniaDzialki());
-			System.out.println("powierzchniaZabudowy: " + dzialka.getPowierzchniaZabudowy());
-			System.out.println("przeznaczenie: " + dzialka.getPrzeznaczenie());
-			System.out.println("aktualneWykorzystanie: " + dzialka.getAktualneWykorzystanie());
-			System.out.println("oszacowanaWartoscNieruchomosci: " + dzialka.getOszacowanaWartosc());
-			System.out.println("planWykorzystaniaLata: " + dzialka.getPlanWykorzystaniaLata());
-			System.out.println("uwagi: " + dzialka.getUwagi());
-			System.out.println("skladKomisji: " + dzialka.getSkladKomisji());
-			System.out.println("");
-			System.out.println("----");
-		}
 		model.addObject("dzialkaList", result);
 		model.setViewName("listaDzialek");
 		return model;
@@ -109,6 +89,11 @@ public class DzialkaWebController {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("logowanie");
 		return model;
+	}
+	
+	@RequestMapping(value = "/podgladDzialka", method = RequestMethod.POST)
+	public void podgladDzialka(@RequestParam("dzialkaId") Long id) {
+		System.out.println("Wybrales podglad dzialki o id: " + id);
 	}
 	
 	@RequestMapping(value = "/konwersja", method = RequestMethod.GET)

@@ -18,7 +18,6 @@
                 <label for="password">Hasło:</label>
                 <input type="password" id="password" name="password">
                 <div id="lower">
-                <input type="checkbox"><label class="check" for="checkbox">Zapamiętaj mnie!</label>
                 <input type="submit" value="ZALOGUJ">
                 </div>
             </form>

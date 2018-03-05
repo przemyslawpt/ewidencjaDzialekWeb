@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html lang="pl">
@@ -80,7 +81,6 @@
                 </th>
                 <th id="th16">Opcje</th>
             </tr>
-            <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
             <c:forEach items="${dzialkaList}" var="dzialka">
                 <tr>
                     <td id="th1">${dzialka.id}</td>
@@ -98,7 +98,12 @@
                     <td id="th13">${dzialka.planWykorzystaniaLata}</td>
                     <td id="th14">${dzialka.uwagi}</td>
                     <td id="th15">${dzialka.skladKomisji}</td>
-                    <td id="th16">${opcje}</td>
+                    <td id="th16">
+	                    <form method="post" action="podgladDzialka">
+		                 <input type="hidden" name="dzialkaId" value="${dzialka.id}">
+		                 <input type="submit" value="Podglad">
+	                    </form>
+                   	</td>
                 </tr>
             </c:forEach>
         </table>

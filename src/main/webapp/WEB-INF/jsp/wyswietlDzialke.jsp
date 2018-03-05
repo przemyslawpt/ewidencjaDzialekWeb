@@ -17,7 +17,7 @@
         Zautomatyzowana baza działek dla Gminy Pokój
     </div>
     <div id="Podtytul">
-        Podgląd danych dla działki
+        Podgląd danych dla działki
     </div>
     <div id="menu">
         <table>
@@ -26,18 +26,18 @@
                 </td>
             </tr>
             <tr>
-                <td id="wyswietl">Wyświetl ewidencję</td>
+                <td id="wyswietl">Wyświetl ewidencję</td>
             </tr>
             <tr>
                 <td id="wyszukaj">Wyszukaj działki</td>
             </tr>
             <tr>
-                <td id="dodaj">Dodaj działkę</td>
+                <td id="dodaj">Dodaj działkę</td>
             </tr>
         </table>
     </div>
     <div id="detale">
-        Dane działki:
+        Dane działki:
     </div>
     <div>
         <form method="post" action="zapiszDzialka">
@@ -55,12 +55,12 @@
                     <td><input type="text" id="obrebgeodezyjny" name="obrebGeodezyjny" /></td>
                 </tr>
                 <tr>
-                    <th><label for="rodzajwlasnosci">Rodzaj Dokumentu Własności : </label></th>
-                    <td><input type="text" id="rodzajwlasnosci" name="rodzajDokumentuWlasności" /></td>
+                    <th><label for="rodzajwlasnosci">Rodzaj dokumentu własności : </label></th>
+                    <td><input type="text" id="rodzajwlasnosci" name="rodzajDokumentuWlasnosci" /></td>
                 </tr>
                 <tr>
-                    <th><label for="numerwlasnosci">Numer Dokumentu Własności : </label></th>
-                    <td><input type="text" id="numerwlasnosci" name="numerDokumentuWlasności" /></td>
+                    <th><label for="numerwlasnosci">Numer dokumentu własności : </label></th>
+                    <td><input type="text" id="numerwlasnosci" name="numerDokumentuWlasnosci" /></td>
                 </tr>
                 <tr>
                     <th><label for="charakterwladania">Charakter Władania : </label></td>
@@ -71,15 +71,15 @@
                     <td><input type="text" id="udzialy" name="udzialy"></td>
                 </tr>
                 <tr>
-                    <th><label for="powierzchniadzialki">Powierzchnia Dzialki : </label></th>
+                    <th><label for="powierzchniadzialki">Powierzchnia działki : </label></th>
                     <td><input type="text" id="powierzchniadzialki" name="powierzchniaDzialki" /></td>
                 </tr>
                 <tr>
-                    <th><label for="powierzchniazabudowy">Powierzchnia Zabudowy : </label></th>
+                    <th><label for="powierzchniazabudowy">Powierzchnia zabudowy : </label></th>
                     <td><input type="text" id="powierzchniazabudowy" name="powierzchniaZabudowy" /></td>
                 </tr>
                 <tr>
-                    <th><label for="oszacowanawartosc">Oszacowana Wartość : </label></th>
+                    <th><label for="oszacowanawartosc">Oszacowana Wartość : </label></th>
                     <td><input type="text" id="oszacowanawartosc" name="oszacowanaWartosc" /></td>
                 </tr>
                 <tr>
@@ -87,11 +87,11 @@
                     <td><input type="text" id="przeznaczenie" name="przeznaczenie" /></td>
                 </tr>
                 <tr>
-                    <th><label for="aktualnewykorzystanie">Aktualne Wykorzystanie : </label></th>
+                    <th><label for="aktualnewykorzystanie">Aktualne wykorzystanie : </label></th>
                     <td><input type="text" id="aktualnewykorzystanie" name="aktualneWykorzystanie" /></td>
                 </tr>
                 <tr>
-                    <th><label for="planwykorzystania">Plan Wykorzystania : </label></th>
+                    <th><label for="planwykorzystania">Plan wykorzystania : </label></th>
                     <td><input type="text" id="planwykorzystania" name="planWykorzystania" /></td>
                 </tr>
                 <tr>
@@ -99,7 +99,7 @@
                     <td><input type="text" id="uwagi" name="uwagi" /></td>
                 </tr>
                 <tr>
-                    <th><label for="skladkomisji">Skład Komisji : </label></th>
+                    <th><label for="skladkomisji">Skład komisji : </label></th>
                     <td><input type="text" id="skladkomisji" name="skladKomisji" /></td>
                 </tr>
             </table>
