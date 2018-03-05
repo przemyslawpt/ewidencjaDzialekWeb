@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,20 +44,16 @@
         <form method="post" action="zapiszDzialka">
             <table id="labels">
                 <tr>
-                    <th><label for="Id">Id : </label></th>
-                    <td><input type="text" id="Id" name="Id" /></td>
-                </tr>
-                <tr>
                     <th><label for="numerewidencyjny">Numer ewidencyjny : </label></th>
-                    <td><input type="text" id="numerewidencyjny" name="numerEwidencyjnyDzialka" /></td>
+                    <td>${dzialka.numerEwidencyjny}</td>
                 </tr>
                 <tr>
                     <th><label for="obrebgeodezyjny">Obręb geodezyjny : </label></th>
-                    <td><input type="text" id="obrebgeodezyjny" name="obrebGeodezyjny" /></td>
+                    <td>${dzialka.obreb}</td>
                 </tr>
                 <tr>
                     <th><label for="rodzajwlasnosci">Rodzaj dokumentu własności : </label></th>
-                    <td><input type="text" id="rodzajwlasnosci" name="rodzajDokumentuWlasnosci" /></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <th><label for="numerwlasnosci">Numer dokumentu własności : </label></th>
