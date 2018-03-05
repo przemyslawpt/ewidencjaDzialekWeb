@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,14 +12,14 @@
 <body>
     <header>
         <div id="panel">
-            <form action="/loginCheck" method="post" >
+            <form>
                 <label for="username">Nazwa użytkownika:</label>
                 <input type="text" id="username" name="username">
                 <label for="password">Hasło:</label>
                 <input type="password" id="password" name="password">
                 <div id="lower">
                 <input type="checkbox"><label class="check" for="checkbox">Zapamiętaj mnie!</label>
-                <input type="submit" value="ZALOGUJ">
+                <input type="login" value="ZALOGUJ">
                 </div>
             </form>
         </div>
