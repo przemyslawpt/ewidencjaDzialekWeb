@@ -61,7 +61,7 @@ public class DzialkaWebController {
 	}
 
 	@RequestMapping(value = "/listaDzialek", method = RequestMethod.GET)
-	public ModelAndView userDetails() {
+	public ModelAndView displayEwidencjaDzialek() {
 		ModelAndView model = new ModelAndView();
 		Integer licznik = 0;
 		List<Dzialka> result = dzialkaService.list();
@@ -70,6 +70,16 @@ public class DzialkaWebController {
 		return model;
 	}
 
+	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
+	public ModelAndView loginCheck() {
+		ModelAndView model = new ModelAndView();
+		Integer licznik = 0;
+		List<Dzialka> result = dzialkaService.list();
+		model.addObject("dzialkaList", result);
+		model.setViewName("listaDzialek");
+		return model;
+	}
+		
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView welcome() {
 		ModelAndView model = new ModelAndView();
@@ -84,10 +94,10 @@ public class DzialkaWebController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/loginPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/zaloguj", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("logowanie");
+		model.setViewName("zaloguj");
 		return model;
 	}
 	
