@@ -13,6 +13,8 @@
     <header>
         <div id="panel">
             <form action="/loginCheck" method="post" >
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <span>${msg}</span>
                 <label for="username">Nazwa użytkownika:</label>
                 <input type="text" id="username" name="username">
                 <label for="password">Hasło:</label>
