@@ -18,10 +18,7 @@
             <h4> Aby zacząć korzystać z bazy ZALOGUJ SIĘ</h4>
         </hgroup>
         <div id="panel">
-        <c:url value="/zaloguj" var="zaloguj"/>
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<form:form action="" method="post">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<span>${msg}</span>
                 <label for="username">Nazwa użytkownika:</label>
                 <input type="text" id="username" name="username">
