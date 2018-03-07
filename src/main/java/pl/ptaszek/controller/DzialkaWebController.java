@@ -103,12 +103,12 @@ public class DzialkaWebController {
 	
 	@RequestMapping(value = "/podgladDzialka", method = RequestMethod.POST)
 	public ModelAndView podgladDzialka(@RequestParam("dzialkaId") Long id) {
-		System.out.println("Wybrales podglad dzialki o id: " + id);
 		ModelAndView model = new ModelAndView();
 		model.setViewName("wyswietlDzialke");
 		model.addObject("dzialka", dzialkaService.get(id));
 		return model;
 	}
+	
 	
 	@RequestMapping(value = "/konwersja", method = RequestMethod.GET)
 	public ModelAndView konwersja() {
