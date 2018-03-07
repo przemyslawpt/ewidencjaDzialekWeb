@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 
 <head>
-    <title>Dodaj Działke</title>
-
+    <meta charset="UTF-8">
+    <title>Dodaj Dzialke</title>
+    <link href="https://fonts.googleapis.com/css?family=Nobile:400,700i|Oswald:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -16,7 +18,7 @@
         Zautomatyzowana baza działek dla Gminy Pokój
     </div>
     <div id="Podtytul">
-        Dodaj działkę do ewidencji
+        Dodaj działkę do ewidencji
     </div>
     <div id="menu">
         <table>
@@ -25,13 +27,13 @@
                 </td>
             </tr>
             <tr>
-                <td id="wyswietl">Wyświetl ewidencję</td>
+                <td id="wyswietl">Wyświetl ewidencję</td>
             </tr>
             <tr>
-                <td id="wyszukaj">Wyszukaj działki</td>
+                <td id="wyszukaj">Wyszukaj działki</td>
             </tr>
             <tr>
-                <td id="dodaj">Dodaj działkę</td>
+                <td id="dodaj">Dodaj działkę</td>
             </tr>
         </table>
     </div>
@@ -54,31 +56,31 @@
                     <td><input type="text" id="obrebgeodezyjny" name="obrebGeodezyjny" /></td>
                 </tr>
                 <tr>
-                    <th><label for="rodzajwlasnosci">Rodzaj dokumentu własności : </label></th>
-                    <td><input type="text" id="rodzajwlasnosci" name="rodzajDokumentuWlasnoÅci" /></td>
+                    <th><label for="rodzajwlasnosci">Rodzaj Dokumentu Własności : </label></th>
+                    <td><input type="text" id="rodzajwlasnosci" name="rodzajDokumentuWlasności" /></td>
                 </tr>
                 <tr>
-                    <th><label for="numerwlasnosci">Numer dokumentu własności : </label></th>
-                    <td><input type="text" id="numerwlasnosci" name="numerDokumentuWlasnoÅci" /></td>
+                    <th><label for="numerwlasnosci">Numer Dokumentu Własności : </label></th>
+                    <td><input type="text" id="numerwlasnosci" name="numerDokumentuWlasności" /></td>
                 </tr>
                 <tr>
-                    <th><label for="charakterwladania">Charakter władania : </label></td>
+                    <th><label for="charakterwladania">Charakter Władania : </label></td>
                         <td><input type="text" id="charakterwladania" name="charakterWladania" /></td>
                 </tr>
                 <tr>
-                    <th><label for="udzialy">Udziały : </label></th>
+                    <th><label for="udzialy">Udziały : </label></th>
                     <td><input type="text" id="udzialy" name="udzialy"></td>
                 </tr>
                 <tr>
-                    <th><label for="powierzchniadzialki">Powierzchnia działki : </label></th>
+                    <th><label for="powierzchniadzialki">Powierzchnia Dzialki : </label></th>
                     <td><input type="text" id="powierzchniadzialki" name="powierzchniaDzialki" /></td>
                 </tr>
                 <tr>
-                    <th><label for="powierzchniazabudowy">Powierzchnia zabudowy : </label></th>
+                    <th><label for="powierzchniazabudowy">Powierzchnia Zabudowy : </label></th>
                     <td><input type="text" id="powierzchniazabudowy" name="powierzchniaZabudowy" /></td>
                 </tr>
                 <tr>
-                    <th><label for="oszacowanawartosc">Oszacowana wartość : </label></th>
+                    <th><label for="oszacowanawartosc">Oszacowana Wartość : </label></th>
                     <td><input type="text" id="oszacowanawartosc" name="oszacowanaWartosc" /></td>
                 </tr>
                 <tr>
@@ -86,11 +88,11 @@
                     <td><input type="text" id="przeznaczenie" name="przeznaczenie" /></td>
                 </tr>
                 <tr>
-                    <th><label for="aktualnewykorzystanie">Aktualne wykorzystanie : </label></th>
+                    <th><label for="aktualnewykorzystanie">Aktualne Wykorzystanie : </label></th>
                     <td><input type="text" id="aktualnewykorzystanie" name="aktualneWykorzystanie" /></td>
                 </tr>
                 <tr>
-                    <th><label for="planwykorzystania">Plan wykorzystania : </label></th>
+                    <th><label for="planwykorzystania">Plan Wykorzystania : </label></th>
                     <td><input type="text" id="planwykorzystania" name="planWykorzystania" /></td>
                 </tr>
                 <tr>
@@ -98,7 +100,7 @@
                     <td><input type="text" id="uwagi" name="uwagi" /></td>
                 </tr>
                 <tr>
-                    <th><label for="skladkomisji">Skład komisji : </label></th>
+                    <th><label for="skladkomisji">Skład Komisji : </label></th>
                     <td><input type="text" id="skladkomisji" name="skladKomisji" /></td>
                 </tr>
             </table>

@@ -97,7 +97,7 @@ public class DzialkaWebController {
 	@RequestMapping(value = "/zaloguj", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("zaloguj");
+		model.setViewName("logowanie");
 		return model;
 	}
 	
