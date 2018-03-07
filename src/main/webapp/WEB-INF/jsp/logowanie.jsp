@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <!DOCTYPE html>
     <html lang="pl">
 
@@ -17,9 +18,11 @@
             <h4> Aby zacząć korzystać z bazy ZALOGUJ SIĘ</h4>
         </hgroup>
         <div id="panel">
-            <form action="/loginCheck" method="post" >
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                <span>${msg}</span>
+        <c:url value="/zaloguj" var="zaloguj"/>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<form:form action="" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<span>${msg}</span>
                 <label for="username">Nazwa użytkownika:</label>
                 <input type="text" id="username" name="username">
                 <label for="password">Hasło:</label>
@@ -27,7 +30,7 @@
                 <div id="lower">
                 <input type="submit" value="ZALOGUJ">
                 </div>
-            </form>
+		</form:form>
         </div>
         <i><img src="img/mapazpinezka.jpg"></i>
     </header>
