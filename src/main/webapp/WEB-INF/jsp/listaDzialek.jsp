@@ -101,7 +101,10 @@
                     <td id="th16">
 	                    <form method="post" action="podgladDzialka">
 		                 <input type="hidden" name="dzialkaId" value="${dzialka.id}">
-		                 <input type="submit" value="Podglad">
+		                 <input id="podglad" type="submit" value="Podgląd">
+                        <form method="post" action="edycjaDzialka">
+		                 <input type="hidden" name="dzialkaId" value="${dzialka.id}">
+		                 <input id="edycja" type="submit" value="Edycja">
 	                    </form>
                    	</td>
                 </tr>
