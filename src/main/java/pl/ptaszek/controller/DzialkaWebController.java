@@ -94,6 +94,15 @@ public class DzialkaWebController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView startowaStrona() {
+		ModelAndView model = new ModelAndView();
+		List<Dzialka> result = dzialkaService.list();
+		model.addObject("dzialkaList", result);
+		model.setViewName("listaDzialek");
+		return model;
+	}
+	
 	@RequestMapping(value = "/zaloguj", method = RequestMethod.GET)
 	public ModelAndView loginPage() {
 		ModelAndView model = new ModelAndView();
@@ -103,7 +112,6 @@ public class DzialkaWebController {
 	
 	@RequestMapping(value = "/podgladDzialka", method = RequestMethod.POST)
 	public ModelAndView podgladDzialka(@RequestParam("dzialkaId") Long id) {
-		System.out.println("Wybrales podglad dzialki o id: " + id);
 		ModelAndView model = new ModelAndView();
 		model.setViewName("wyswietlDzialke");
 		model.addObject("dzialka", dzialkaService.get(id));

@@ -104,9 +104,9 @@
                     <td><input type="text" id="skladkomisji" name="skladKomisji" /></td>
                 </tr>
             </table>
-    </div>
     <input type="button" id="zapisz" value="Zapisz">
     </form>
+  </div>
 </body>
 
 </html>

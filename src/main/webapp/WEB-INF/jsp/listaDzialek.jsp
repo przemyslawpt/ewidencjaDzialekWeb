@@ -29,13 +29,13 @@
                 </td>
             </tr>
             <tr>
-                <td id="wyswietl">Wyświetl ewidencję</td>
+              <td id="wyswietl"><a href="https:/wyswietlDzialke"> </a> Wyświetl ewidencję </td>
             </tr>
             <tr>
-                <td id="wyszukaj">Wyszukaj działki</td>
+              <td id="wyszukaj"><a href="https:/wyszukajDzialki"> </a >Wyszukaj działki </td>
             </tr>
             <tr>
-                <td id="dodaj">Dodaj działkę</td>
+              <td id="dodaj"><a href="https:/dodajDzialke"> </a> Dodaj działkę </td>
             </tr>
         </table>
     </div>
