@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<c:if test=""${tryb.equals('Wyszukaj')}">jhvytgf7oyuxcsitluv</c:if>
     <div>
         <img id="herb" src="img/herb.jpeg"></img>
     </div>

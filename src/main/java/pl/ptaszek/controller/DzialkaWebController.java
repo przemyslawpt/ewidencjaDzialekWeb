@@ -117,6 +117,13 @@ public class DzialkaWebController {
 		model.addObject("dzialka", dzialkaService.get(id));
 		return model;
 	}
+	@RequestMapping(value = "/edycjaDzialka", method = RequestMethod.POST)
+	public ModelAndView edycjaDzialka(@RequestParam("dzialkaId") Long id) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("edycjaDzialki");
+		model.addObject("dzialka", dzialkaService.get(id));
+		return model;
+	}
 	
 	@RequestMapping(value = "/konwersja", method = RequestMethod.GET)
 	public ModelAndView konwersja() {
