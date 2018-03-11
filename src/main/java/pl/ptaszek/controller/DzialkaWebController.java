@@ -1,7 +1,15 @@
 package pl.ptaszek.controller;
 
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,59 +21,210 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import pl.ptaszek.config.Konwersja;
+import pl.ptaszek.dao.DzialkaHistoryDaoImpl;
+import pl.ptaszek.model.CalkowitaWartoscPrzeznaczenia;
 import pl.ptaszek.model.Dzialka;
 import pl.ptaszek.service.DzialkaService;
 
 @Controller
 public class DzialkaWebController {
-
+	
+	Logger logger = Logger.getLogger(DzialkaWebController.class);
+private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	
 	@Autowired
 	private DzialkaService dzialkaService;
 
-	@GetMapping("dodajDzialke")
+/*	@GetMapping("dodajDzialke")
 	public String getnowaDzialkaform() {
 		return "nowaDzialka";
 	}
 
 	@GetMapping("wyszukaj")
 	public String getwyszukajDzialkaform() {
-		return "wyszukajDzialka";
-	}
-
-	@PostMapping("/wyszukajDzialka") //
-	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
-			@RequestParam("obrebDzialka") String obrebDzialka, ModelMap modelMap) {
+		return "filtrujListeDzialek";
+	}*/
+	
+	@GetMapping("/wyszukajDzialka") 
+	public ModelAndView wyszukajDzialka() {
 		ModelAndView model = new ModelAndView();
-		model.addObject("dzialkaList", dzialkaService.findBy(numerEwidencyjnyDzialka, obrebDzialka));
-		model.setViewName("dzialkiLista");
+		model.setViewName("wyszukajDzialke");
 		return model;
 	}
-
+	
+	@GetMapping("/podsumowanie")
+	public ModelAndView podsumowanie() {
+		ModelAndView model = new ModelAndView();
+		Date now = new Date();
+		List<CalkowitaWartoscPrzeznaczenia> przeznaczenieCalkowitaWartoscList = dzialkaService.createPodsumowanie(now);
+		model.addObject("result", przeznaczenieCalkowitaWartoscList);
+		CalkowitaWartoscPrzeznaczenia podsumowanie = new CalkowitaWartoscPrzeznaczenia();
+		podsumowanie.setPrzeznaczenie("wszystkie");
+		BigDecimal wszystkieWartosc = BigDecimal.ZERO;
+		for (CalkowitaWartoscPrzeznaczenia element : przeznaczenieCalkowitaWartoscList) {
+			wszystkieWartosc = wszystkieWartosc.add(new BigDecimal(element.getCalkowitaWartoscOszacowana()));
+		}
+		podsumowanie.setCalkowitaWartoscOszacowana(wszystkieWartosc.toPlainString());
+		model.addObject("stanNaDzien", simpleDateFormat.format(now));
+		model.addObject("podsumowanie", podsumowanie);
+		model.setViewName("podsumowanie");
+		return model;
+	}
+	
+	@GetMapping("/podsumowanieHistory")
+	public ModelAndView podsumowanieHistory(@RequestParam("stanNaDzien") String stanNaDzien) {
+		ModelAndView model = new ModelAndView();
+		Date date = new Date();
+		try {
+			date = simpleDateFormat.parse(stanNaDzien);
+		} catch (Exception exception) {
+			logger.warn("Nieporawna data: " + stanNaDzien);
+		}
+		List<CalkowitaWartoscPrzeznaczenia> przeznaczenieCalkowitaWartoscList = dzialkaService.createPodsumowanie(date);
+		model.addObject("result", przeznaczenieCalkowitaWartoscList);
+		CalkowitaWartoscPrzeznaczenia podsumowanie = new CalkowitaWartoscPrzeznaczenia();
+		podsumowanie.setPrzeznaczenie("wszystkie");
+		BigDecimal wszystkieWartosc = BigDecimal.ZERO;
+		for (CalkowitaWartoscPrzeznaczenia element : przeznaczenieCalkowitaWartoscList) {
+			wszystkieWartosc = wszystkieWartosc.add(new BigDecimal(element.getCalkowitaWartoscOszacowana()));
+		}
+		podsumowanie.setCalkowitaWartoscOszacowana(wszystkieWartosc.toPlainString());
+		model.addObject("stanNaDzien", stanNaDzien);
+		model.addObject("podsumowanie", podsumowanie);
+		model.setViewName("podsumowanie");
+		return model;
+	}
+	
+	@PostMapping("/filtrujListeDzialek") //
+	public ModelAndView saveDetails(@RequestParam("stanNaDzien") String stanNaDzien,
+			@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
+			@RequestParam("obrebGeodezyjny") String obrebGeodezyjny,
+			@RequestParam("rodzajDokumentuWlasnosci") String rodzajDokumentuWlasnosci,
+			@RequestParam("numerDokumentuWlasnosci") String numerDokumentuWlasnosci,
+			@RequestParam("charakterWladania") String charakterWladania, @RequestParam("udzialy") String udzialy,
+			@RequestParam("powierzchniaDzialki") String powierzchniaDzialki,
+			@RequestParam("powierzchniaZabudowy") String powierzchniaZabudowy,
+			@RequestParam("oszacowanaWartosc") String oszacowanaWartosc,
+			@RequestParam("przeznaczenie") String przeznaczenie,
+			@RequestParam("aktualneWykorzystanie") String aktualneWykorzystanie,
+			@RequestParam("planWykorzystania") String planWykorzystania, @RequestParam("uwagi") String uwagi,
+			@RequestParam("skladKomisji") String skladKomisji, ModelMap modelMap) {
+		ModelAndView model = new ModelAndView();
+		Date stanNaDzienAsDate = null;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			stanNaDzienAsDate = simpleDateFormat.parse(stanNaDzien);
+		} catch (ParseException e) {
+			System.out.println("Data zostala wprowadzona niepoprawnie");
+		}
+		if (stanNaDzienAsDate != null) {
+			model.addObject("dzialkaList",
+					dzialkaService.findBy(numerEwidencyjnyDzialka, obrebGeodezyjny, rodzajDokumentuWlasnosci,
+							numerDokumentuWlasnosci, charakterWladania, udzialy, powierzchniaDzialki,
+							powierzchniaZabudowy, oszacowanaWartosc, przeznaczenie, aktualneWykorzystanie,
+							planWykorzystania, uwagi, skladKomisji, stanNaDzienAsDate));
+		} else {
+			model.addObject("dzialkaList",
+					dzialkaService.findBy(numerEwidencyjnyDzialka, obrebGeodezyjny, rodzajDokumentuWlasnosci,
+							numerDokumentuWlasnosci, charakterWladania, udzialy, powierzchniaDzialki,
+							powierzchniaZabudowy, oszacowanaWartosc, przeznaczenie, aktualneWykorzystanie,
+							planWykorzystania, uwagi, skladKomisji));
+		}
+		if (stanNaDzienAsDate != null) {
+			model.setViewName("listaDzialekFiltrData");
+		}else {
+			model.setViewName("listaDzialekFiltr");
+		}
+		return model;
+	}
+	
 	@PostMapping("/zapiszDzialka") //
-	public ModelAndView saveDetails(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
-			@RequestParam("obrebDzialka") String obrebDzialka,
-			@RequestParam("charakterWladaniaDzialka") String charakterWladaniaDzialka,
-			@RequestParam("udzialyDzialka") String udzialyDzialka,
-			@RequestParam("powierzchniaDzialka") String powierzchniaDzialka, ModelMap modelMap) {
+	public ModelAndView dodajDzialka(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
+			@RequestParam("obrebGeodezyjny") String obrebGeodezyjny,
+			@RequestParam("rodzajDokumentuWlasnosci") String rodzajDokumentuWlasnosci,
+			@RequestParam("numerDokumentuWlasnosci") String numerDokumentuWlasnosci,
+			@RequestParam("charakterWladania") String charakterWladania,
+			@RequestParam("udzialy") String udzialy,
+			@RequestParam("powierzchniaDzialki") String powierzchniaDzialki,
+			@RequestParam("powierzchniaZabudowy") String powierzchniaZabudowy,
+			@RequestParam("oszacowanaWartosc") String oszacowanaWartosc,
+			@RequestParam("przeznaczenie") String przeznaczenie,
+			@RequestParam("aktualneWykorzystanie") String aktualneWykorzystanie,
+			@RequestParam("planWykorzystania") String planWykorzystania,
+			@RequestParam("uwagi") String uwagi,
+			@RequestParam("skladKomisji") String skladKomisji, ModelMap modelMap) {
 		Dzialka dzialka = new Dzialka();
-		dzialka.setCharakterWladania(charakterWladaniaDzialka);
-		dzialka.setObreb(obrebDzialka);
-		dzialka.setUdzialy(udzialyDzialka);
 		dzialka.setNumerEwidencyjny(numerEwidencyjnyDzialka);
-		//dzialka.setPowierzchnia(powierzchniaDzialka);
+		dzialka.setObreb(obrebGeodezyjny);
+		dzialka.setWlasnoscRodzajDokumentu(rodzajDokumentuWlasnosci);
+		dzialka.setWlasnoscNumerDokumentu(numerDokumentuWlasnosci);
+		dzialka.setCharakterWladania(charakterWladania);
+		if (udzialy != null && udzialy.isEmpty()) {
+			dzialka.setUdzialy("1/1");
+		}
+		dzialka.setUdzialy(udzialy);
+		dzialka.setPowierzchniaDzialki(powierzchniaDzialki);
+		dzialka.setPowierzchniaZabudowy(powierzchniaZabudowy);
+		dzialka.setOszacowanaWartosc(oszacowanaWartosc);
+		dzialka.setPrzeznaczenie(przeznaczenie);
+		dzialka.setAktualneWykorzystanie(aktualneWykorzystanie);
+		dzialka.setPlanWykorzystaniaLata(planWykorzystania);
+		dzialka.setUwagi(uwagi);
+		dzialka.setSkladKomisji(skladKomisji);
 		dzialkaService.save(dzialka);
 		ModelAndView model = new ModelAndView();
 		model.addObject("dzialka", dzialka);
-		model.setViewName("wyswietlDzialka");
+		model.setViewName("wyswietlDzialke");
+		return model;
+	}
+	
+	@PostMapping("/uaktualnijDzialka") //
+	public ModelAndView updateDzialka(@RequestParam("numerEwidencyjnyDzialka") String numerEwidencyjnyDzialka,
+			@RequestParam("obrebGeodezyjny") String obrebGeodezyjny,
+			@RequestParam("id") Long id,
+			@RequestParam("rodzajDokumentuWlasnosci") String rodzajDokumentuWlasnosci,
+			@RequestParam("numerDokumentuWlasnosci") String numerDokumentuWlasnosci,
+			@RequestParam("charakterWladania") String charakterWladania,
+			@RequestParam("udzialy") String udzialy,
+			@RequestParam("powierzchniaDzialki") String powierzchniaDzialki,
+			@RequestParam("powierzchniaZabudowy") String powierzchniaZabudowy,
+			@RequestParam("oszacowanaWartosc") String oszacowanaWartosc,
+			@RequestParam("przeznaczenie") String przeznaczenie,
+			@RequestParam("aktualneWykorzystanie") String aktualneWykorzystanie,
+			@RequestParam("planWykorzystania") String planWykorzystania,
+			@RequestParam("uwagi") String uwagi,
+			@RequestParam("skladKomisji") String skladKomisji, ModelMap modelMap) {
+		Dzialka dzialka = dzialkaService.get(id);
+		dzialka.setNumerEwidencyjny(numerEwidencyjnyDzialka);
+		dzialka.setObreb(obrebGeodezyjny);
+		dzialka.setWlasnoscRodzajDokumentu(rodzajDokumentuWlasnosci);
+		dzialka.setWlasnoscNumerDokumentu(numerDokumentuWlasnosci);
+		dzialka.setCharakterWladania(charakterWladania);
+		if (udzialy != null && udzialy.isEmpty()) {
+			dzialka.setUdzialy("1/1");
+		}
+		dzialka.setUdzialy(udzialy);
+		dzialka.setPowierzchniaDzialki(powierzchniaDzialki);
+		dzialka.setPowierzchniaZabudowy(powierzchniaZabudowy);
+		dzialka.setOszacowanaWartosc(oszacowanaWartosc);
+		dzialka.setPrzeznaczenie(przeznaczenie);
+		dzialka.setAktualneWykorzystanie(aktualneWykorzystanie);
+		dzialka.setUwagi(uwagi);
+		dzialka.setPlanWykorzystaniaLata(planWykorzystania);
+		dzialka.setSkladKomisji(skladKomisji);
+		dzialkaService.update(dzialka);
+		ModelAndView model = new ModelAndView();
+		model.addObject("dzialka", dzialka);
+		model.setViewName("wyswietlDzialke");
 		return model;
 	}
 
 	@RequestMapping(value = "/listaDzialek", method = RequestMethod.GET)
 	public ModelAndView displayEwidencjaDzialek() {
 		ModelAndView model = new ModelAndView();
-		Integer licznik = 0;
 		List<Dzialka> result = dzialkaService.list();
 		model.addObject("dzialkaList", result);
+		model.addObject("filtrowanie", true);
 		model.setViewName("listaDzialek");
 		return model;
 	}
@@ -73,7 +232,6 @@ public class DzialkaWebController {
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	public ModelAndView loginCheck() {
 		ModelAndView model = new ModelAndView();
-		Integer licznik = 0;
 		List<Dzialka> result = dzialkaService.list();
 		model.addObject("dzialkaList", result);
 		model.setViewName("listaDzialek");
@@ -114,9 +272,12 @@ public class DzialkaWebController {
 	public ModelAndView podgladDzialka(@RequestParam("dzialkaId") Long id) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("wyswietlDzialke");
-		model.addObject("dzialka", dzialkaService.get(id));
+		Dzialka dzialka = dzialkaService.get(id);
+		model.addObject("dzialka", dzialka);
+		model.addObject("stanNa", simpleDateFormat.format(dzialka.getOperationDate()));
 		return model;
 	}
+	
 	@RequestMapping(value = "/edycjaDzialka", method = RequestMethod.POST)
 	public ModelAndView edycjaDzialka(@RequestParam("dzialkaId") Long id) {
 		ModelAndView model = new ModelAndView();
@@ -133,5 +294,9 @@ public class DzialkaWebController {
 		model.setViewName("witaj");
 		return model;
 	}
+	
+	
 
 }
+
+

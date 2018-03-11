@@ -20,7 +20,7 @@
         Zautomatyzowana baza mienia dla Gminy Pokój
     </div>
     <div id="Podtytul">		
-        Pełna ewidencja mienia.
+        Wyniki wyszukiwania dla ewidencji mienia.
 	</div>
 	<div id="menu">
 		<table>
@@ -101,17 +101,17 @@
                     <td id="th13">${dzialka.planWykorzystaniaLata}</td>
                     <td id="th14">${dzialka.uwagi}</td>
                     <td id="th15">${dzialka.skladKomisji}</td>
-                    <td id="th16">
-	                    <form method="post" action="podgladDzialka">
-		                 <input type="hidden" name="dzialkaId" value="${dzialka.id}">
-		                 <input id="podglad" type="submit" value="Podgląd">
-		                 </form>
-	                        <form method="post" action="edycjaDzialka">
-			                 	<input type="hidden" name="dzialkaId" value="${dzialka.id}"> 
-	        					<input id="edycja" type="submit" value="Edycja">
-			                </form>
-                   	</td>
-                </tr>
+					<td id="th16">
+						<form method="post" action="podgladDzialka">
+							<input type="hidden" name="dzialkaId" value="${dzialka.id}">
+							<input id="podglad" type="submit" value="Podgląd">
+						</form>
+						<form method="post" action="edycjaDzialka">
+							<input type="hidden" name="dzialkaId" value="${dzialka.id}">
+							<input id="edycja" type="submit" value="Edycja">
+						</form>
+					</td>
+				</tr>
             </c:forEach>
         </table>
     </div>

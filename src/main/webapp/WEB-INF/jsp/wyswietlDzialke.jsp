@@ -18,7 +18,7 @@
         Zautomatyzowana baza działek dla Gminy Pokój
     </div>
     <div id="Podtytul">
-        Podgląd danych dla działki
+        Podsumowanie oszacowana wartość.
     </div>
     <div id="menu">
         <table>
@@ -27,22 +27,25 @@
                 </td>
             </tr>
             <tr>
-                <td id="wyswietl">Wyświetl ewidencję</td>
+                <td id="wyswietl"><a href="/listaDzialek">Wyświetl ewidencję</a></td>
             </tr>
             <tr>
-                <td id="wyszukaj">Wyszukaj działki</td>
+                <td id="wyszukaj"><a href="/wyszukajDzialka">Wyszukaj działki</a></td>
             </tr>
             <tr>
-                <td id="dodaj">Dodaj działkę</td>
-            </tr>
+                <td id="dodaj"><a href="/dodajDzialka">Dodaj działkę</a></td>
+       		</tr>
+       		<tr>
+                <td id="dodaj"><a href="/podsumowanie">Podsumowanie</a></td>
+       		</tr>
         </table>
     </div>
-    <div id="detale">
-        Dane działki:
-    </div>
     <div>
-        <form method="post" action="zapiszDzialka">
             <table id="labels">
+                <tr>
+                    <th><label for="stanNa">Stan na: </label></th>
+                    <td><input type="text" id="stanNa" name="stanNa" readonly="readonly" value="${stanNa}"/></td>
+                </tr>
                 <tr>
                     <th><label for="Id">Id : </label></th>
                     <td><input type="text" id="Id" name="Id" readonly="readonly" value="${dzialka.id}"/></td>
@@ -105,7 +108,6 @@
                 </tr>
             </table>
     </div>
-    </form>
 </body>
 
 </html>

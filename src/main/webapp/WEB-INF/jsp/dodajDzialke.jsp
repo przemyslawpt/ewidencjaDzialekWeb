@@ -15,38 +15,36 @@
         <img id="herb" src="img/herb.jpeg"></img>
     </div>
     <div id="Tytul">
-        Zautomatyzowana baza działek dla Gminy Pokój
+        Zautomatyzowana baza mienia dla Gminy Pokój
     </div>
     <div id="Podtytul">
         Dodaj działkę do ewidencji
     </div>
-    <div id="menu">
-        <table>
-            <tr>
-                <td id="m">Menu</strong>
-                </td>
-            </tr>
-            <tr>
-                <td id="wyswietl">Wyświetl ewidencję</td>
-            </tr>
-            <tr>
-                <td id="wyszukaj">Wyszukaj działki</td>
-            </tr>
-            <tr>
-                <td id="dodaj">Dodaj działkę</td>
-            </tr>
-        </table>
-    </div>
-    <div id="detale">
-        Detale działki:
-    </div>
-    <div>
+	<div id="menu">
+		<table>
+			<tr>
+				<td id="m">Menu</strong>
+				</td>
+			</tr>
+			<tr>
+				<td id="wyswietl"><a href="/listaDzialek">Wyświetl
+						ewidencję</a></td>
+			</tr>
+			<tr>
+				<td id="wyszukaj"><a href="/wyszukajDzialka">Wyszukaj
+						działki</a></td>
+			</tr>
+			<tr>
+				<td id="dodaj"><a href="/dodajDzialka">Dodaj działkę</a></td>
+			</tr>
+			<tr>
+				<td id="dodaj"><a href="/podsumowanie">Podsumowanie</a></td>
+			</tr>
+		</table>
+	</div>
+	<div>
         <form method="post" action="zapiszDzialka">
             <table id="labels">
-                <tr>
-                    <th><label for="Id">Id : </label></th>
-                    <td><input type="text" id="Id" name="Id" /></td>
-                </tr>
                 <tr>
                     <th><label for="numerewidencyjny">Numer ewidencyjny : </label></th>
                     <td><input type="text" id="numerewidencyjny" name="numerEwidencyjnyDzialka" /></td>
@@ -57,11 +55,11 @@
                 </tr>
                 <tr>
                     <th><label for="rodzajwlasnosci">Rodzaj Dokumentu Własności : </label></th>
-                    <td><input type="text" id="rodzajwlasnosci" name="rodzajDokumentuWlasności" /></td>
+                    <td><input type="text" id="rodzajwlasnosci" name="rodzajDokumentuWlasnosci" /></td>
                 </tr>
                 <tr>
                     <th><label for="numerwlasnosci">Numer Dokumentu Własności : </label></th>
-                    <td><input type="text" id="numerwlasnosci" name="numerDokumentuWlasności" /></td>
+                    <td><input type="text" id="numerwlasnosci" name="numerDokumentuWlasnosci" /></td>
                 </tr>
                 <tr>
                     <th><label for="charakterwladania">Charakter Władania : </label></td>
@@ -104,7 +102,7 @@
                     <td><input type="text" id="skladkomisji" name="skladKomisji" /></td>
                 </tr>
             </table>
-    <input type="button" id="zapisz" value="Zapisz">
+    <input type="submit" id="zapisz" value="Zapisz">
     </form>
   </div>
 </body>

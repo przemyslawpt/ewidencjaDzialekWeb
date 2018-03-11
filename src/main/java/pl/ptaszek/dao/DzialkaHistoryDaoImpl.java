@@ -13,44 +13,26 @@ import org.springframework.stereotype.Component;
 
 import pl.ptaszek.model.Dzialka;
 import pl.ptaszek.model.DzialkaHistory;
-import pl.ptaszek.model.OperationType;
 
 @Component
-public class DzialkaDaoImpl implements DzialkaDao {
+public class DzialkaHistoryDaoImpl implements DzialkaHistoryDao {
 
-	Logger logger = Logger.getLogger(DzialkaDaoImpl.class);
+	Logger logger = Logger.getLogger(DzialkaHistoryDaoImpl.class);
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-	public void save(Dzialka dzialka) {
+	public void save(DzialkaHistory dzialkaHistory) {
 		Session session = sessionFactory.openSession();
-		session.save(dzialka);
+		session.save(dzialkaHistory);
 		session.close();
 	}
 
 	@Override
-	public void update(Dzialka dzialka) {
+	public DzialkaHistory get(Long id) {
 		Session session = sessionFactory.openSession();
-		session.update(dzialka);
-		session.flush();
-		session.close();
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Dzialka> list() {
-		Session session = sessionFactory.openSession();
-		List<Dzialka> result = session.createCriteria(Dzialka.class).list();
-		session.flush();
-		session.close();
-		return result;
-	}
-
-	@Override
-	public Dzialka get(Long id) {
-		Session session = sessionFactory.openSession();
-		Dzialka result = session.get(Dzialka.class, id);
+		DzialkaHistory result = session.get(DzialkaHistory.class, id);
 		session.flush();
 		session.close();
 		return result;
@@ -58,13 +40,13 @@ public class DzialkaDaoImpl implements DzialkaDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Dzialka> findBy(String numerEwidencyjnyDzialka, String obrebGeodezyjny,
+	public List<DzialkaHistory> findBy(String numerEwidencyjnyDzialka, String obrebGeodezyjny,
 			String rodzajDokumentuWlasnosci, String numerDokumentuWlasnosci, String charakterWladania,
 			String udzialy, String powierzchniaDzialki, String powierzchniaZabudowy, String oszacowanaWartosc,
 			String przeznaczenie, String aktualneWykorzystanie, String planWykorzystania, String uwagi,
-			String skladKomisji){
+			String skladKomisji, Date stanNaDzien){
 		
-		Criteria criteria = sessionFactory.openSession().createCriteria(Dzialka.class);	
+		Criteria criteria = sessionFactory.openSession().createCriteria(DzialkaHistory.class);	
 		if (isSetNotEmpty(numerEwidencyjnyDzialka)) {
 			criteria.add(Restrictions.eq("numerEwidencyjny", numerEwidencyjnyDzialka));
 		}
@@ -107,48 +89,16 @@ public class DzialkaDaoImpl implements DzialkaDao {
 		if (isSetNotEmpty(skladKomisji)) {
 			criteria.add(Restrictions.eq("skladKomisji", skladKomisji));
 		}
+		if (stanNaDzien != null) {
+			criteria.add(Restrictions.le("operationDate", stanNaDzien));
+		}
 		return criteria.list();
 	}
-	
+
 	private boolean isSetNotEmpty(String property) {
-		if(property==null) {
+		if (property == null) {
 			return false;
 		}
 		return !property.isEmpty();
-	}
-	
-	@Override
-	public void saveAll(List<Dzialka> dzialkaList) {
-		Session session = sessionFactory.openSession();
-		System.out.println("Dzialki to add: " + dzialkaList.size());
-		logger.error("Dzialki to add: " + dzialkaList.size());
-		for (Dzialka dzialka : dzialkaList) {
-			dzialka.setOperationDate(new Date());
-			session.save(dzialka);
-			DzialkaHistory dzialkaHistory = convertDzialka(dzialka);
-			dzialkaHistory.setOperationDate(new Date());
-			dzialkaHistory.setOperationType(OperationType.ADD);
-			session.save(dzialkaHistory);
-		}
-	}
-	
-	private DzialkaHistory convertDzialka(Dzialka dzialka) {
-		DzialkaHistory dzialkaHistory = new DzialkaHistory();
-		dzialkaHistory.setRzeczywistaDzialkaId(dzialka.getId());
-		dzialkaHistory.setNumerEwidencyjny(dzialka.getNumerEwidencyjny());
-		dzialkaHistory.setObreb(dzialka.getObreb());
-		dzialkaHistory.setWlasnoscRodzajDokumentu(dzialka.getWlasnoscRodzajDokumentu());
-		dzialkaHistory.setWlasnoscNumerDokumentu(dzialka.getWlasnoscNumerDokumentu());
-		dzialkaHistory.setCharakterWladania(dzialka.getCharakterWladania());
-		dzialkaHistory.setUdzialy(dzialka.getUdzialy());
-		dzialkaHistory.setPowierzchniaDzialki(dzialka.getPowierzchniaDzialki());
-		dzialkaHistory.setPowierzchniaZabudowy(dzialka.getPowierzchniaZabudowy());
-		dzialkaHistory.setOszacowanaWartosc(dzialka.getOszacowanaWartosc());
-		dzialkaHistory.setPrzeznaczenie(dzialka.getPrzeznaczenie());
-		dzialkaHistory.setAktualneWykorzystanie(dzialka.getAktualneWykorzystanie());
-		dzialkaHistory.setPlanWykorzystaniaLata(dzialka.getPlanWykorzystaniaLata());
-		dzialkaHistory.setUwagi(dzialka.getUwagi());
-		dzialkaHistory.setSkladKomisji(dzialka.getSkladKomisji());
-		return dzialkaHistory;
 	}
 }

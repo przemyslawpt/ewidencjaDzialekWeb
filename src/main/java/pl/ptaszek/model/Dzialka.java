@@ -1,5 +1,7 @@
 package pl.ptaszek.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,6 +43,8 @@ public class Dzialka {
 		private String uwagi; 
 		
 		private String skladKomisji; 
+		
+		private Date operationDate;
 
 		public long getId() {
 			return id;
@@ -162,5 +166,12 @@ public class Dzialka {
 			this.skladKomisji = skladKomisji;
 		}
 
-		
+		public Date getOperationDate() {
+			return operationDate;
+		}
+
+		public void setOperationDate(Date operationDate) {
+			this.operationDate = operationDate;
+		}
+	
 }

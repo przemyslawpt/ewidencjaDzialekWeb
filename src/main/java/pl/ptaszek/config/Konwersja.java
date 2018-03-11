@@ -17,8 +17,7 @@ import java.util.List;
  *
  */
 public class Konwersja {
-
-	private static final String PATH = "/home/pptaszek/ewidencjaDzialekWeb/src/main/java/pl/ptaszek/config/";
+	private static final String PATH = "C:\\ewidencjaDzialekWeb\\ewidencjaDzialekWeb\\src\\main\\java\\pl\\ptaszek\\config\\";
 
 	public static List<Dzialka> stworzDzialkiZPliku() {
 		List<Dzialka> dzialkaList = new ArrayList<>();

@@ -21,12 +21,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Override
-	public void configure(HttpSecurity http) throws Exception {		
+	public void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests().antMatchers("/lib/bootstrap/**", "/css/**", "/img/**", "/js/**").permitAll()
 				.anyRequest().authenticated().and().authorizeRequests()
 				.antMatchers("/konwersja", "/podgladDzialka", "/dodajDzialka", "/edycjaDzialka", "/welcome",
-						"/loginCheck", "/listaDzialek", "/zapiszDzialka", "/wyszukajDzialka")
+						"/podsumowanieHistory", "/podsumowanie", "/loginCheck", "wyszukajDzialke", "/uaktualnijDzialka",
+						"/wyszukajDzialka", "/listaDzialek", "/zapiszDzialka", "/wyszukajDzialka")
 				.hasRole("USER").and().formLogin().loginPage("/zaloguj").failureUrl("/zaloguj")
 				.loginProcessingUrl("/zaloguj").permitAll().and().logout().logoutSuccessUrl("/listaDzialek");
 	}

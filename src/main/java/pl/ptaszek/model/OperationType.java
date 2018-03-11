@@ -6,12 +6,15 @@ package pl.ptaszek.model;
 public enum OperationType {
 
 	/**
-	 * Add or update.
+	 * Add.
 	 */
-	ADD_OR_UPDATE,
-
+	ADD,
 	/**
-	 * Delete
+	 * Update.
+	 */
+	UPDATE,
+	/**
+	 * Delete.
 	 */
 	DELETE;
 

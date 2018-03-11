@@ -16,6 +16,8 @@ public class DzialkaHistory {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	private Long rzeczywistaDzialkaId;
+	
 	private String numerEwidencyjny;
 	
 	private String obreb; 
@@ -183,5 +185,12 @@ public class DzialkaHistory {
 	public void setOperationDate(Date operationDate) {
 		this.operationDate = operationDate;
 	}
-	
+
+	public Long getRzeczywistaDzialkaId() {
+		return rzeczywistaDzialkaId;
+	}
+
+	public void setRzeczywistaDzialkaId(Long rzeczywistaDzialkaId) {
+		this.rzeczywistaDzialkaId = rzeczywistaDzialkaId;
+	}
 }
