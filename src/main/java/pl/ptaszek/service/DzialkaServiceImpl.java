@@ -142,7 +142,8 @@ public class DzialkaServiceImpl implements DzialkaService {
 			for (String oszacowanaWartosc : przeznaczenieWartoscListMap.get(key)) {
 				wartosc = wartosc.add(new BigDecimal(oszacowanaWartosc));
 			}
-			calkowitaWartoscPrzeznaczenia.setCalkowitaWartoscOszacowana(wartosc.toPlainString());
+			calkowitaWartoscPrzeznaczenia
+					.setCalkowitaWartoscOszacowana(wartosc.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 			calkowitaWartoscPrzeznaczeniaList.add(calkowitaWartoscPrzeznaczenia);
 		}
 		return calkowitaWartoscPrzeznaczeniaList;

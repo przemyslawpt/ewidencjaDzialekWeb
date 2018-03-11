@@ -64,7 +64,8 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		for (CalkowitaWartoscPrzeznaczenia element : przeznaczenieCalkowitaWartoscList) {
 			wszystkieWartosc = wszystkieWartosc.add(new BigDecimal(element.getCalkowitaWartoscOszacowana()));
 		}
-		podsumowanie.setCalkowitaWartoscOszacowana(wszystkieWartosc.toPlainString());
+		podsumowanie
+				.setCalkowitaWartoscOszacowana(wszystkieWartosc.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 		model.addObject("stanNaDzien", simpleDateFormat.format(now));
 		model.addObject("podsumowanie", podsumowanie);
 		model.setViewName("podsumowanie");

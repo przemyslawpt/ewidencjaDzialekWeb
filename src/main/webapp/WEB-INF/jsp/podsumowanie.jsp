@@ -43,6 +43,9 @@
 			<tr>
 				<td id="dodaj"><a href="/dodajDzialka">Dodaj działkę</a></td>
 			</tr>
+			<tr>
+				<td id="dodaj"><a href="/podsumowanie">Podsumowanie</a></td>
+			</tr>
 		</table>
 	</div>
 	<br/>
