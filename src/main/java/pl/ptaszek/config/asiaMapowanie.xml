@@ -6,22 +6,44 @@
       <parser>
       <property name="delimiter" value=";" />
     </parser>
-
-    <record name="employee" class="pl.ptaszek.model.Dzialka">
-      <field name="obreb" position="1"/>
-      <field name="numerEwidencyjny" position="2"/>
-      <field name="powierzchniaDzialki" position="4"/>
-      <field name="charakterWladania" position="6"/>
-      <field name="udzialy" position="7"/>
-      <field name="wlasnoscRodzajDokumentu" position="11"/>
-      <field name="wlasnoscNumerDokumentu" position="12"/>
-      <field name="oszacowanaWartosc" position="14"/>
-      <field name="powierzchniaZabudowy" position="58"/>
-      <field name="aktualneWykorzystanie" position="59"/>
-      <field name="planWykorzystaniaLata" position="60"/>
-      <field name="przeznaczenie" position="61"/>
-      <field name="uwagi" position="62"/>
-      <field name="skladKomisji" position="63"/>
+    <record name="komunikat" class="pl.ptaszek.model.Komunikat" order="1" occurs="1">
+    	<field name="komunikat" position="0"/>
     </record>
+    <record name="komunikat2" class="pl.ptaszek.model.Komunikat" order="2" occurs="1">
+    	<field name="komunikat" position="0"/>
+    </record>
+    <record name="header" class="pl.ptaszek.model.Dzialka" order="3" occurs="1">
+      <field name="numerEwidencyjny" default="Numer ewidencyjny" ignore="true" position="0"/>
+      <field name="obreb" default="Obręb geodezyjny" ignore="true" position="1"/>
+      <field name="wlasnoscRodzajDokumentu" ignore="true" default="Rodzaj dokumentu własności" position="2"/>
+      <field name="wlasnoscNumerDokumentu" ignore="true" default="Numer Dokumentu Własności" position="3"/>
+      <field name="charakterWladania" ignore="true" default="Charakter władania" position="4"/>
+      <field name="udzialy" ignore="true" default="Udziały" position="5"/>
+      <field name="powierzchniaDzialki" ignore="true" default="Powierzchnia dzialki [ha]" position="6"/>
+      <field name="powierzchniaZabudowy" ignore="true" default="Powierzchnia zabudowy [m2]" position="7"/>
+      <field name="oszacowanaWartosc" ignore="true" default="Oszacowana wartość [PLN]" position="8"/>
+      <field name="przeznaczenie" ignore="true" default="Przeznaczenie" position="9"/>
+      <field name="aktualneWykorzystanie" ignore="true" default="Aktualne wykorzystanie" position="10"/>
+      <field name="planWykorzystaniaLata" ignore="true" default="Plan wykorzystania" position="11"/>
+      <field name="uwagi" default="Uwagi" ignore="true" position="12"/>
+      <field name="skladKomisji" ignore="true" default="Skład Komisji" position="13"/>
+    </record>
+    <record name="dzialka" order="4" minOccurs="0" maxOccurs="unbounded"  class="pl.ptaszek.model.Dzialka">
+      <field name="numerEwidencyjny" position="0"/>
+      <field name="obreb" position="1"/>
+      <field name="powierzchniaDzialki" position="2"/>
+      <field name="charakterWladania" position="3"/>
+      <field name="udzialy" position="4"/>
+      <field name="wlasnoscNumerDokumentu" position="5"/>
+      <field name="wlasnoscRodzajDokumentu" position="6"/>
+      <field name="oszacowanaWartosc" position="7"/>
+      <field name="powierzchniaZabudowy" position="8"/>
+      <field name="aktualneWykorzystanie" position="9"/>
+      <field name="planWykorzystaniaLata" position="10"/>
+      <field name="przeznaczenie" position="11"/>
+      <field name="uwagi" position="12"/>
+      <field name="skladKomisji" position="13"/>
+    </record>
+    
   </stream>
 </beanio>

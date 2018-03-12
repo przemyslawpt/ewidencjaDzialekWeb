@@ -1,10 +1,12 @@
 package pl.ptaszek.config;
 
 import org.beanio.BeanReader;
+import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
 import org.springframework.util.StringUtils;
 
 import pl.ptaszek.model.Dzialka;
+import pl.ptaszek.model.Komunikat;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,6 +21,11 @@ import java.util.List;
 public class Konwersja {
 	private static final String PATH = "C:\\ewidencjaDzialekWeb\\ewidencjaDzialekWeb\\src\\main\\java\\pl\\ptaszek\\config\\";
 
+	public static void main(String[] argc) {
+		wydrukujListaDzialek();
+	}
+	
+	
 	public static List<Dzialka> stworzDzialkiZPliku() {
 		List<Dzialka> dzialkaList = new ArrayList<>();
 		StreamFactory factory = StreamFactory.newInstance();
@@ -56,6 +63,20 @@ public class Konwersja {
 		// plik do mapowania w obecnym katalogu: asiaMapowanie.xml
 		// plik wynikowy z plikiem "csv" otwieralnym w excelu asiaWyniki.csv
 		System.out.println("Gdzie jest plik ? Bierz sie do roboty leniu.");
+		StreamFactory factory = StreamFactory.newInstance();
+		factory.load(PATH + "asiaMapowanie.xml");
+		Komunikat komunikat = new Komunikat();
+		Komunikat komunikat2 = new Komunikat();
+		komunikat.setKomunikat("Stan ewidencji mienia na dzień 2018-03-12");
+		BeanWriter out = factory.createWriter("Dzialki", new File(PATH + "ewidencjaMienia.csv"));
+		out.write("komunikat", komunikat);
+		out.write("komunikat2", komunikat2);
+		out.write("header", new Dzialka());
+		for(Dzialka dzialka: dzialki) {
+        	out.write(dzialka);
+        }
+        out.flush();
+        out.close();
 	}
 
 }
