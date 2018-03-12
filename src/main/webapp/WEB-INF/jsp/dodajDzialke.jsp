@@ -106,7 +106,7 @@
     </form>
   </div>
   <div id="stopka">
-        © 2018 Wszystkie prawa zastrzeżone
+        © 2016 Wszystkie prawa zastrzeżone
     </div>
 </body>
 
