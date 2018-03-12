@@ -9,10 +9,7 @@
     <record name="komunikat" class="pl.ptaszek.model.Komunikat" order="1" occurs="1">
     	<field name="komunikat" position="0"/>
     </record>
-    <record name="komunikat2" class="pl.ptaszek.model.Komunikat" order="2" occurs="1">
-    	<field name="komunikat" position="0"/>
-    </record>
-    <record name="header" class="pl.ptaszek.model.Dzialka" order="3" occurs="1">
+    <record name="header" class="pl.ptaszek.model.Dzialka" order="2" occurs="1">
       <field name="numerEwidencyjny" default="Numer ewidencyjny" ignore="true" position="0"/>
       <field name="obreb" default="Obręb geodezyjny" ignore="true" position="1"/>
       <field name="wlasnoscRodzajDokumentu" ignore="true" default="Rodzaj dokumentu własności" position="2"/>
@@ -28,7 +25,7 @@
       <field name="uwagi" default="Uwagi" ignore="true" position="12"/>
       <field name="skladKomisji" ignore="true" default="Skład Komisji" position="13"/>
     </record>
-    <record name="dzialka" order="4" minOccurs="0" maxOccurs="unbounded"  class="pl.ptaszek.model.Dzialka">
+    <record name="dzialka" order="3" minOccurs="0" maxOccurs="unbounded"  class="pl.ptaszek.model.Dzialka">
       <field name="numerEwidencyjny" position="0"/>
       <field name="obreb" position="1"/>
       <field name="powierzchniaDzialki" position="2"/>

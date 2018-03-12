@@ -19,10 +19,9 @@
     <div id="Tytul">
         Zautomatyzowana baza mienia dla Gminy Pokój
     </div>
-    <form method="post" action="raportPodglad">
+    <form method="get" action="raportEwidencja">
             <div id="Podtytul">Pełna ewidencja mienia.
-                <input type="hidden" id="raportDzialkaId" name="Id" value="${dzialka.id}" />
-                <input type="submit" id="generuj" value="Drukuj" />
+                <input type="submit" id="generuj" value="Zapisz" />
             </div>
         </form>
 	<div id="menu">

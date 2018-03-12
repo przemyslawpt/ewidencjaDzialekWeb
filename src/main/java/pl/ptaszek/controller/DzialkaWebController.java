@@ -1,5 +1,8 @@
 package pl.ptaszek.controller;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,7 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.beanio.BeanWriter;
+import org.beanio.StreamFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +33,7 @@ import pl.ptaszek.config.Konwersja;
 import pl.ptaszek.dao.DzialkaHistoryDaoImpl;
 import pl.ptaszek.model.CalkowitaWartoscPrzeznaczenia;
 import pl.ptaszek.model.Dzialka;
+import pl.ptaszek.model.Komunikat;
 import pl.ptaszek.service.DzialkaService;
 
 @Controller
@@ -228,6 +238,32 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		model.addObject("filtrowanie", true);
 		model.setViewName("listaDzialek");
 		return model;
+	}
+	
+	@RequestMapping(value = "/raportEwidencja", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> generujPlikEwidencjiCSV() throws Exception {
+		// byte[] output = regData.getBytes();
+		HttpHeaders responseHeaders = new HttpHeaders();
+		List<Dzialka> dzialkaList = dzialkaService.list();
+		StreamFactory factory = StreamFactory.newInstance();
+		factory.load(this.getClass().getClassLoader().getResourceAsStream("ewidencjaDzialekMapowanie.xml"));
+		Komunikat komunikat = new Komunikat();
+		komunikat.setKomunikat("Stan ewidencji mienia na dzień: " + simpleDateFormat.format(new Date()));
+		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new ByteArrayOutputStream());
+		BeanWriter out = factory.createWriter("Dzialki", outputStreamWriter);
+		out.write("komunikat", komunikat);
+		out.write("header", new Dzialka());
+		for (Dzialka dzialka : dzialkaList) {
+			out.write(dzialka);
+		}
+		out.flush();
+		out.close();
+		responseHeaders.set("charset", "utf-8");
+		responseHeaders.setContentType(MediaType.valueOf("text/html"));
+		byte[] outputStream = outputStreamWriter.toString().getBytes();
+		responseHeaders.setContentLength(outputStream.length);
+		responseHeaders.set("Content-disposition", "attachment; filename=ewidencjaMienia.csv");
+		return new ResponseEntity<byte[]>(outputStream, responseHeaders, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)

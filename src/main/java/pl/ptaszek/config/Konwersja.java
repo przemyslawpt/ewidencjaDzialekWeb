@@ -21,9 +21,9 @@ import java.util.List;
 public class Konwersja {
 	private static final String PATH = "C:\\ewidencjaDzialekWeb\\ewidencjaDzialekWeb\\src\\main\\java\\pl\\ptaszek\\config\\";
 
-	public static void main(String[] argc) {
-		wydrukujListaDzialek();
-	}
+//	public static void main(String[] argc) {
+//		wydrukujListaDzialek();
+//	}
 	
 	
 	public static List<Dzialka> stworzDzialkiZPliku() {
