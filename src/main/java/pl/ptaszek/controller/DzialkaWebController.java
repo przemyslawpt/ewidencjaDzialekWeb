@@ -45,16 +45,6 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	@Autowired
 	private DzialkaService dzialkaService;
 
-/*	@GetMapping("dodajDzialke")
-	public String getnowaDzialkaform() {
-		return "nowaDzialka";
-	}
-
-	@GetMapping("wyszukaj")
-	public String getwyszukajDzialkaform() {
-		return "filtrujListeDzialek";
-	}*/
-	
 	@GetMapping("/wyszukajDzialka") 
 	public ModelAndView wyszukajDzialka() {
 		ModelAndView model = new ModelAndView();

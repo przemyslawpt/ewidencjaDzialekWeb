@@ -115,6 +115,9 @@
             </c:forEach>
         </table>
     </div>
+        <div id="stopka">
+        © 2018 Wszystkie prawa zastrzeżone
+    </div>
 </body>
 
 </html>

@@ -21,7 +21,7 @@
     </div>
     <form method="get" action="raportEwidencja">
             <div id="Podtytul">Pełna ewidencja mienia.
-                <input type="submit" id="generuj" value="Zapisz" />
+                <input type="hidden" id="generuj" value="Generuj" />
             </div>
         </form>
 	<div id="menu">
@@ -118,7 +118,7 @@
         </table>
     </div>
     <div id="stopka">
-        © by Stowarzyszenie Pokój Organizacja Pożytku Publicznego 2018 Wszystkie prawa zastrzeżone
+        © 2018 Wszystkie prawa zastrzeżone
     </div>
 </body>
 
