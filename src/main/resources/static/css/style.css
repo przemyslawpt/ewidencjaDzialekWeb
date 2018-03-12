@@ -389,11 +389,11 @@ header input[type=checkbox] {
     color: darkslategray;
 }
 #stopka{
-    position: fixed;
+    position: relative;
+    display: table;
 	height: 40px;
     width: 100vw;
     text-align: center;
-	bottom: 0;
 	background: white;
 	vertical-align: middle;
 }

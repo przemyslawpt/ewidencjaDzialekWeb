@@ -14,7 +14,7 @@
 <body>
     <header>
         <hgroup>
-            <h1>Witaj w programie Mienie 1.0, ewidencji mienia Gminy Pokój</h1>
+            <h1>Witaj w programie Mienie 1.0</h1>
             <h4> Aby zacząć korzystać z bazy ZALOGUJ SIĘ</h4>
         </hgroup>
         <div id="panel">
