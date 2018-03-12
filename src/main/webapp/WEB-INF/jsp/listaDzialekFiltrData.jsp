@@ -17,7 +17,7 @@
         <img id="herb" src="img/herb.jpeg"></img>
     </div>
     <div id="Tytul">
-        Zautomatyzowana baza mienia dla Gminy Pokój
+        Mienie 1.0. Ewidencja mienia Gminy Pokój
     </div>
     <div id="Podtytul">		
         Wyniki wyszukiwania dla ewidencja mienia.

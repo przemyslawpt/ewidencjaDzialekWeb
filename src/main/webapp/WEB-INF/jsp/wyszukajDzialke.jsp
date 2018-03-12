@@ -14,11 +14,10 @@
 </head>
 
 <body>
-	<c:if test=""${tryb.equals('Wyszukaj')}">jhvytgf7oyuxcsitluv</c:if>
 	<div>
 		<img id="herb" src="img/herb.jpeg"mie/img>
 	</div>
-	<div id="Tytul">Zautomatyzowana baza mienia dla Gminy Pokój</div>
+	<div id="Tytul">Mienie 1.0. Ewidencja mienia Gminy Pokój</div>
 	<div id="Podtytul">Wyszukaj działkę z ewidencji</div>
 	<div id="menu">
 		<table>

@@ -9,8 +9,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nobile:400,700i|Oswald:400,700&amp;subset=latin-ext"
 	rel="stylesheet">
-<script defer
-	src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,7 +17,7 @@
 	<div>
 		<img id="herb" src="img/herb.jpeg"></img>
 	</div>
-	<div id="Tytul">Zautomatyzowana baza mienia dla Gminy Pokój</div>
+	<div id="Tytul">Mienie 1.0. Ewidencja mienia Gminy Pokój</div>
 	<form method="get" action="podsumowanieHistory">
 		<div id="Podtytul">Stan na dzień:
 		  <input type="text" id="stanNaDzien" name="stanNaDzien" value="${stanNaDzien}"/>
@@ -68,10 +67,8 @@
 				</tr>
 		</table>
 	</div>
-<div id="stopka">
             <div id="stopka">
         © 2018 Wszystkie prawa zastrzeżone
-    </div>
     </div>
 </body>
 
