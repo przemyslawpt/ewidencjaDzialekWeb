@@ -15,7 +15,7 @@
         <img id="herb" src="img/herb.jpeg"></img>
     </div>
     <div id="Tytul">
-        Zautomatyzowana baza działek dla Gminy Pokój
+        Zautomatyzowana baza mienia dla Gminy Pokój
     </div>
     <div id="Podtytul">
         Podsumowanie oszacowana wartość.
@@ -41,6 +41,10 @@
         </table>
     </div>
     <div>
+                   <form method="post" action="raportPodglad">
+                   		<input type="hidden" id="raportDzialkaId" name="Id" value="${dzialka.id}"/>
+                   		<input type="submit" value="Generuj raport" />
+                   </form>
             <table id="labels">
                 <tr>
                     <th><label for="stanNa">Stan na: </label></th>
