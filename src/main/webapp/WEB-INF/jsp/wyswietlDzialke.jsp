@@ -18,9 +18,9 @@
        Mienie 1.0. Ewidencja mienia Gminy Pokój
     </div>
       <form method="post" action="raportPodglad">
-            <div id="Podtytul">Podsumowanie.
+            <div id="Podtytul">Pogdląd działki.
                 <input type="hidden" id="raportDzialkaId" name="Id" value="${dzialka.id}" />
-                <input type="submit" id="generuj" value="Drukuj" />
+                <input type="hidden" id="generuj" value="Drukuj" />
             </div>
         </form>
     <div id="menu">
