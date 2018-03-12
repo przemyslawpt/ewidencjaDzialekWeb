@@ -25,7 +25,6 @@
 	    <input type="submit" id="odswiez" value="Odśwież">
 		</div>
 		</form>
-	</div>
 	<div id="menu">
 		<table>
 			<tr>
