@@ -11,7 +11,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import pl.ptaszek.model.Dzialka;
 import pl.ptaszek.model.DzialkaHistory;
 
 @Component
@@ -26,6 +25,7 @@ public class DzialkaHistoryDaoImpl implements DzialkaHistoryDao {
 	public void save(DzialkaHistory dzialkaHistory) {
 		Session session = sessionFactory.openSession();
 		session.save(dzialkaHistory);
+		session.flush();
 		session.close();
 	}
 
@@ -41,12 +41,12 @@ public class DzialkaHistoryDaoImpl implements DzialkaHistoryDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DzialkaHistory> findBy(String numerEwidencyjnyDzialka, String obrebGeodezyjny,
-			String rodzajDokumentuWlasnosci, String numerDokumentuWlasnosci, String charakterWladania,
-			String udzialy, String powierzchniaDzialki, String powierzchniaZabudowy, String oszacowanaWartosc,
-			String przeznaczenie, String aktualneWykorzystanie, String planWykorzystania, String uwagi,
-			String skladKomisji, Date stanNaDzien){
-		
-		Criteria criteria = sessionFactory.openSession().createCriteria(DzialkaHistory.class);	
+			String rodzajDokumentuWlasnosci, String numerDokumentuWlasnosci, String charakterWladania, String udzialy,
+			String powierzchniaDzialki, String powierzchniaZabudowy, String oszacowanaWartosc, String przeznaczenie,
+			String aktualneWykorzystanie, String planWykorzystania, String uwagi, String skladKomisji,
+			Date stanNaDzien) {
+		Session session = sessionFactory.openSession();
+		Criteria criteria = session.createCriteria(DzialkaHistory.class);
 		if (isSetNotEmpty(numerEwidencyjnyDzialka)) {
 			criteria.add(Restrictions.eq("numerEwidencyjny", numerEwidencyjnyDzialka));
 		}
@@ -92,7 +92,10 @@ public class DzialkaHistoryDaoImpl implements DzialkaHistoryDao {
 		if (stanNaDzien != null) {
 			criteria.add(Restrictions.le("operationDate", stanNaDzien));
 		}
-		return criteria.list();
+		List<DzialkaHistory> result = criteria.list();
+		session.flush();
+		session.close();
+		return result;
 	}
 
 	private boolean isSetNotEmpty(String property) {

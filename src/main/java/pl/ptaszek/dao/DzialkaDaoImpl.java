@@ -27,6 +27,7 @@ public class DzialkaDaoImpl implements DzialkaDao {
 	public void save(Dzialka dzialka) {
 		Session session = sessionFactory.openSession();
 		session.save(dzialka);
+		session.flush();
 		session.close();
 	}
 
@@ -63,8 +64,8 @@ public class DzialkaDaoImpl implements DzialkaDao {
 			String udzialy, String powierzchniaDzialki, String powierzchniaZabudowy, String oszacowanaWartosc,
 			String przeznaczenie, String aktualneWykorzystanie, String planWykorzystania, String uwagi,
 			String skladKomisji){
-		
-		Criteria criteria = sessionFactory.openSession().createCriteria(Dzialka.class);	
+		Session session = sessionFactory.openSession();
+		Criteria criteria = session.createCriteria(Dzialka.class);	
 		if (isSetNotEmpty(numerEwidencyjnyDzialka)) {
 			criteria.add(Restrictions.eq("numerEwidencyjny", numerEwidencyjnyDzialka));
 		}
@@ -107,7 +108,10 @@ public class DzialkaDaoImpl implements DzialkaDao {
 		if (isSetNotEmpty(skladKomisji)) {
 			criteria.add(Restrictions.eq("skladKomisji", skladKomisji));
 		}
-		return criteria.list();
+		List<Dzialka> result = criteria.list();
+		session.flush();
+		session.close();
+		return result;
 	}
 	
 	private boolean isSetNotEmpty(String property) {
@@ -130,6 +134,8 @@ public class DzialkaDaoImpl implements DzialkaDao {
 			dzialkaHistory.setOperationType(OperationType.ADD);
 			session.save(dzialkaHistory);
 		}
+		session.flush();
+		session.close();
 	}
 	
 	private DzialkaHistory convertDzialka(Dzialka dzialka) {
