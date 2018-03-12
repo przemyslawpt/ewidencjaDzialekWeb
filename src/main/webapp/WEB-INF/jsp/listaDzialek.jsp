@@ -19,9 +19,12 @@
     <div id="Tytul">
         Zautomatyzowana baza mienia dla Gminy Pokój
     </div>
-    <div id="Podtytul">		
-        Pełna ewidencja mienia.
-	</div>
+    <form method="post" action="raportPodglad">
+            <div id="Podtytul">Pełna ewidencja mienia.
+                <input type="hidden" id="raportDzialkaId" name="Id" value="${dzialka.id}" />
+                <input type="submit" id="generuj" value="Drukuj" />
+            </div>
+        </form>
 	<div id="menu">
 		<table>
 			<tr>
@@ -114,6 +117,9 @@
                 </tr>
             </c:forEach>
         </table>
+    </div>
+    <div id="stopka">
+        © by Stowarzyszenie Pokój Organizacja Pożytku Publicznego 2018 Wszystkie prawa zastrzeżone
     </div>
 </body>
 

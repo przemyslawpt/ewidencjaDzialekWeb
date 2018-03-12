@@ -32,7 +32,9 @@
         </div>
         <i><img src="img/mapazpinezka.jpg"></i>
     </header>
-
+	<div id="stopka">
+        © by Stowarzyszenie Pokój Organizacja Pożytku Publicznego 2018 Wszystkie prawa zastrzeżone
+    </div>
 </body>
 </html>
 

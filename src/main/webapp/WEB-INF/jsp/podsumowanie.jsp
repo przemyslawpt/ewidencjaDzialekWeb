@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
 <meta charset="UTF-8">
-<title>WyswietlDzialke</title>
+<title>PodsumowanieDzialke</title>
 <link
 	href="https://fonts.googleapis.com/css?family=Nobile:400,700i|Oswald:400,700&amp;subset=latin-ext"
 	rel="stylesheet">
@@ -22,7 +22,7 @@
 	<form method="get" action="podsumowanieHistory">
 		<div id="Podtytul">Stan na dzień:
 		  <input type="text" id="stanNaDzien" name="stanNaDzien" value="${stanNaDzien}"/>
-	    <input type="submit" id="zapisz" value="Odswież">
+	    <input type="submit" id="odswiez" value="Odśwież">
 		</div>
 		</form>
 	</div>
@@ -61,16 +61,17 @@
 					<th>${row.calkowitaWartoscOszacowana}</th>
 				</tr>
 			</c:forEach>
-			<tr>
-				<th></th><th></th>
-			</tr>
-			<tr>
+			</table>
+                <table id="podsumowanie">	
+				<tr>
 					<th>${podsumowanie.przeznaczenie}</th>
 					<th>${podsumowanie.calkowitaWartoscOszacowana}</th>
 				</tr>
 		</table>
 	</div>
-
+<div id="stopka">
+        © by Stowarzyszenie Pokój Organizacja Pożytku Publicznego 2018 Wszystkie prawa zastrzeżone
+    </div>
 </body>
 
 </html>

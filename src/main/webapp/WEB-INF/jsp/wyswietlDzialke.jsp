@@ -17,9 +17,12 @@
     <div id="Tytul">
         Zautomatyzowana baza mienia dla Gminy Pokój
     </div>
-    <div id="Podtytul">
-        Podsumowanie oszacowana wartość.
-    </div>
+      <form method="post" action="raportPodglad">
+            <div id="Podtytul">Podsumowanie.
+                <input type="hidden" id="raportDzialkaId" name="Id" value="${dzialka.id}" />
+                <input type="submit" id="generuj" value="Drukuj" />
+            </div>
+        </form>
     <div id="menu">
         <table>
             <tr>
@@ -41,10 +44,6 @@
         </table>
     </div>
     <div>
-                   <form method="post" action="raportPodglad">
-                   		<input type="hidden" id="raportDzialkaId" name="Id" value="${dzialka.id}"/>
-                   		<input type="submit" value="Generuj raport" />
-                   </form>
             <table id="labels">
                 <tr>
                     <th><label for="stanNa">Stan na: </label></th>
@@ -111,6 +110,9 @@
                     <td><input type="text" id="skladkomisji" name="skladKomisji" readonly="readonly" value="${dzialka.skladKomisji}"/></td>
                 </tr>
             </table>
+    </div>
+    <div id="stopka">
+        © by Stowarzyszenie Pokój Organizacja Pożytku Publicznego 2018 Wszystkie prawa zastrzeżone
     </div>
 </body>
 
