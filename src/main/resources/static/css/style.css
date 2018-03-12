@@ -147,9 +147,9 @@ header input[type=checkbox] {
 
 #Podtytul {
     position: relative;
+    text-align: center;
     font-family: 'Oswald';
     font-size: 3rem;
-    text-align: center;
     margin-top: 8px;
 }
 
@@ -183,7 +183,7 @@ header input[type=checkbox] {
     table-layout: fixed;
     width: 84vw;
     min-height: 5%;
-    margin-top: 5%;
+    margin-top: 1%;
     float: right;
     border-collapse: collapse;
     border: 1px solid silver;
@@ -222,7 +222,6 @@ header input[type=checkbox] {
 #tabela td {
     font-size: 1.3rem;
     text-align: left;
-    text-overflow:clip;
     vertical-align: bottom;
     height: 40px;
     padding: 1px;
@@ -313,6 +312,7 @@ header input[type=checkbox] {
     color: black;
     background: #f0f0f0;
     position: relative;
+    margin-top: auto;
     height: 50%;
     width: 6.5vw;
     border-radius: 5px;
@@ -331,3 +331,70 @@ header input[type=checkbox] {
     width: 6.5vw;
     border-radius: 5px;
 }
+#odswiez{
+    position: relative;
+    display: inline;
+    width: 10vw;
+    margin-left: 5vw;
+    padding: 5px 10px;
+    font-family: 'Oswald';
+    font-size: 1.7rem;
+    font-style: bold;
+    text-align: center;
+    color: darkslategray;
+}
+#stanNaDzien{
+    position: relative;
+    display: inline;
+    padding: 5px 5px;
+    font-family: 'Oswald';
+    font-size: 1.7rem;
+    text-align: center;  
+}
+#pod1{
+    color: green;
+    background-color: green;
+}
+#podsumowanie{
+    position: relative;
+    display: table;
+    font-family: 'Oswald';
+    margin-left: 20vw;
+    margin-top: 3vh;
+    letter-spacing: -1px;
+}
+#podsumowanie th{
+    font-family: 'Oswald';
+    font-size: 1.7rem;
+    text-align: right;
+    vertical-align: middle;
+    padding: 5px 5px;
+    width: 30vw;
+    border: 1px solid silver;
+    border-radius: 3px;
+    color: darkslategray;
+    background-color: #f0f0f0;
+}
+#generuj{
+    position: relative;
+    display: inline;
+    width: 10vw;
+    margin-left: 3vw;
+    margin-bottom: 2vh;
+    padding: 5px 10px;
+    font-family: 'Oswald';
+    font-size: 1.7rem;
+    font-style: bold;
+    text-align: center;
+    color: darkslategray;
+}
+#stopka{
+    position: fixed;
+	height: 40px;
+    width: 100vw;
+    text-align: center;
+	bottom: 0;
+	background: white;
+	vertical-align: middle;
+}
+    
