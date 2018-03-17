@@ -1,5 +1,7 @@
 package pl.ptaszek.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +20,9 @@ import pl.ptaszek.model.OperationType;
 @Component
 public class DzialkaDaoImpl implements DzialkaDao {
 
+	
+	private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	
 	Logger logger = Logger.getLogger(DzialkaDaoImpl.class);
 
 	@Autowired
@@ -137,6 +142,27 @@ public class DzialkaDaoImpl implements DzialkaDao {
 		session.flush();
 		session.close();
 	}
+	
+	@Override
+	public void copyAll(List<Dzialka> dzialkaList) {
+		Session session = sessionFactory.openSession();
+		for (Dzialka dzialka : dzialkaList) {
+			DzialkaHistory dzialkaHistory = convertDzialka(dzialka);
+			Date histDate = new Date();
+			try {
+				histDate = simpleDateFormat.parse("2016-12-30");
+			} catch (ParseException e) {
+				logger.error("Error when parsing date");
+			}
+			dzialkaHistory.setOperationDate(histDate);
+			dzialkaHistory.setOperationType(OperationType.ADD);
+			session.save(dzialkaHistory);
+		}
+		session.flush();
+		session.close();
+	}
+	
+	
 	
 	private DzialkaHistory convertDzialka(Dzialka dzialka) {
 		DzialkaHistory dzialkaHistory = new DzialkaHistory();

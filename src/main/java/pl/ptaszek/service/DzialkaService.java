@@ -15,6 +15,8 @@ public interface DzialkaService {
 
 	void saveAll(List<Dzialka> dzialkaList);
 	
+	void copyAll(List<Dzialka> dzialkaList);
+	
 	Dzialka get(Long id);
 	
 	List<Dzialka> findBy(String numerEwidencyjnyDzialka, String obrebGeodezyjny,

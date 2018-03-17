@@ -8,6 +8,8 @@ public interface DzialkaDao {
 
 	void save(Dzialka dzialka);
 	
+	void copyAll(List<Dzialka> dzialkaList);
+	
 	void update(Dzialka dzialka);
 
 	Dzialka get(Long id);

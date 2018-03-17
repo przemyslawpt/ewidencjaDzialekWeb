@@ -93,6 +93,7 @@ public class DzialkaHistoryDaoImpl implements DzialkaHistoryDao {
 			criteria.add(Restrictions.le("operationDate", stanNaDzien));
 		}
 		List<DzialkaHistory> result = criteria.list();
+		logger.error("znaleziono: " + result.size());
 		session.flush();
 		session.close();
 		return result;

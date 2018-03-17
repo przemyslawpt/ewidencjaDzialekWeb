@@ -101,6 +101,11 @@ public class DzialkaServiceImpl implements DzialkaService {
 		dzialkaDao.saveAll(dzialkaList);	
 	}
 	
+	@Override
+	public void copyAll(List<Dzialka> dzialkaList) {
+		dzialkaDao.copyAll(dzialkaList);
+	}
+	
 	private DzialkaHistory convertDzialka(Dzialka dzialka) {
 		DzialkaHistory dzialkaHistory = new DzialkaHistory();
 		dzialkaHistory.setRzeczywistaDzialkaId(dzialka.getId());

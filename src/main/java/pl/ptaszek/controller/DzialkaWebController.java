@@ -72,6 +72,8 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		return model;
 	}
 	
+	
+	
 	@GetMapping("/podsumowanieHistory")
 	public ModelAndView podsumowanieHistory(@RequestParam("stanNaDzien") String stanNaDzien) {
 		ModelAndView model = new ModelAndView();
@@ -317,6 +319,15 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	public ModelAndView konwersja() {
 		List<Dzialka> result = Konwersja.stworzDzialkiZPliku();
 		dzialkaService.saveAll(result);
+		ModelAndView model = new ModelAndView();
+		model.setViewName("witaj");
+		return model;
+	}
+	
+	@RequestMapping(value = "/kopiuj", method = RequestMethod.GET)
+	public ModelAndView kopiuj() {
+		List<Dzialka> result = dzialkaService.list();
+		dzialkaService.copyAll(result);
 		ModelAndView model = new ModelAndView();
 		model.setViewName("witaj");
 		return model;
