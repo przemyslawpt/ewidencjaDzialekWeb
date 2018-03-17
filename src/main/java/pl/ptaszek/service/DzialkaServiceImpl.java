@@ -147,7 +147,7 @@ public class DzialkaServiceImpl implements DzialkaService {
 						tempOszacowaniaWartosc = new BigDecimal(oszacowanaWartosc);
 					} catch (Exception ex) {
 						tempOszacowaniaWartosc = BigDecimal.ZERO;
-						logger.error("Niepprawna wartosc liczbowa dla przeznaczenie: ");
+						logger.error("Niepprawna wartosc liczbowa dla przeznaczenie: " + oszacowanaWartosc);
 					}
 					wartosc = wartosc.add(tempOszacowaniaWartosc);
 				}
