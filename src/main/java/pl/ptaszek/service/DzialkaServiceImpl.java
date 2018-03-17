@@ -140,7 +140,17 @@ public class DzialkaServiceImpl implements DzialkaService {
 			calkowitaWartoscPrzeznaczenia.setPrzeznaczenie(key);
 			BigDecimal wartosc = BigDecimal.ZERO;
 			for (String oszacowanaWartosc : przeznaczenieWartoscListMap.get(key)) {
-				wartosc = wartosc.add(new BigDecimal(oszacowanaWartosc));
+				if(oszacowanaWartosc!=null) {
+					oszacowanaWartosc=oszacowanaWartosc.trim();
+					BigDecimal tempOszacowaniaWartosc;
+					try{
+						 tempOszacowaniaWartosc = new BigDecimal(oszacowanaWartosc);
+					catch(Exception ex){
+					tempOszacowaniaWartosc=BigDecimal.ZERO;
+					logger.error("Niepprawna wartosc liczbowa dla przeznaczenie: "); 
+					}
+					wartosc = wartosc.add(new BigDecimal(oszacowanaWartosc));
+				}
 			}
 			calkowitaWartoscPrzeznaczenia
 					.setCalkowitaWartoscOszacowana(wartosc.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
