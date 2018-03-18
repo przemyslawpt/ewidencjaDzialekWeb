@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -253,12 +254,13 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		}
 		out.flush();
 		out.close();
+		
 		responseHeaders.set("charset", "utf-8");
 		responseHeaders.setContentType(MediaType.valueOf("text/html"));
 		byte[] outputStream = outputStreamWriter.toString().getBytes();
 		responseHeaders.setContentLength(outputStream.length);
 		responseHeaders.set("Content-disposition", "attachment; filename=ewidencjaMienia.csv");
-		return new ResponseEntity<OutputStreamWriter>(outputStream, responseHeaders, HttpStatus.OK);
+		return new ResponseEntity<byte[]>(outputStream, responseHeaders, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
