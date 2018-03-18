@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		http.authorizeRequests().antMatchers("/lib/bootstrap/**", "/css/**", "/img/**", "/js/**").permitAll()
 				.anyRequest().authenticated().and().authorizeRequests()
-				.antMatchers("/konwersja", "/kopiuj", "/podgladDzialka", "/dodajDzialka", "/edycjaDzialka", "/welcome",
+				.antMatchers("/konwersja", "/podgladDzialka", "/dodajDzialka", "/edycjaDzialka", "/welcome",
 						"/raportEwidencja", "/podsumowanieHistory", "/podsumowanie", "/loginCheck", "wyszukajDzialke",
 						"/uaktualnijDzialka", "/wyszukajDzialka", "/listaDzialek", "/zapiszDzialka", "/wyszukajDzialka")
 				.hasRole("USER").and().formLogin().loginPage("/zaloguj").failureUrl("/zaloguj")

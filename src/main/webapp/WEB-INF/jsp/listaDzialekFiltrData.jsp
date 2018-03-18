@@ -19,10 +19,13 @@
     <div id="Tytul">
         DZIAŁKI GP v.1. Ewidencja mienia Gminy Pokój
     </div>
+     <form method="get" action="raportEwidencja">
     <div id="Podtytul">		
         Wyniki wyszukiwania dla ewidencja mienia. <br/> Stan na dzień: ${stanNaDzien}
+         <input type="hidden" value="${stanNaDzien}" name="stanNa" value="Generuj" />
          <input type="submit" id="generuj" value="Generuj" />
 	</div>
+	</form>
 	<div id="menu">
 		<table>
 			<tr>

@@ -22,6 +22,7 @@
     <form method="get" action="raportEwidencja">
             <div id="Podtytul">Pełna ewidencja mienia. </br>
             Stan na dzień: ${stanNaDzien}
+            	<input type="hidden" value="${stanNaDzien}" name="stanNa" value="Generuj" />
                 <input type="submit" id="generuj" value="Generuj" />
             </div>
         </form>

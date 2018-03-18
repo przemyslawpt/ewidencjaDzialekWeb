@@ -2,6 +2,7 @@ package pl.ptaszek.controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -15,6 +16,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
+import org.beanio.internal.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -23,6 +25,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +37,7 @@ import pl.ptaszek.config.Konwersja;
 import pl.ptaszek.dao.DzialkaHistoryDaoImpl;
 import pl.ptaszek.model.CalkowitaWartoscPrzeznaczenia;
 import pl.ptaszek.model.Dzialka;
+import pl.ptaszek.model.DzialkaHistory;
 import pl.ptaszek.model.Komunikat;
 import pl.ptaszek.service.DzialkaService;
 
@@ -237,19 +241,24 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	}
 	
 	@RequestMapping(value = "/raportEwidencja", method = RequestMethod.GET)
-	public ResponseEntity<byte[]> generujPlikEwidencjiCSV() throws Exception {
+	public ResponseEntity<byte[]> generujPlikEwidencjiCSV(@RequestParam("stanNa") String stanNa) throws Exception {
 		// byte[] output = regData.getBytes();
 		HttpHeaders responseHeaders = new HttpHeaders();
-		List<Dzialka> dzialkaList = dzialkaService.list();
+		if (StringUtils.isEmpty(stanNa)) {
+			stanNa = simpleDateFormat.format(new Date());
+		}
+		List<DzialkaHistory> dzialkaList = dzialkaService.findBy(null, null, null, null, null, null, null, null, null, null,
+				null, null, null, null, simpleDateFormat.parse(stanNa));
 		StreamFactory factory = StreamFactory.newInstance();
 		factory.load(this.getClass().getClassLoader().getResourceAsStream("ewidencjaDzialekMapowanie.xml"));
 		Komunikat komunikat = new Komunikat();
 		komunikat.setKomunikat("Stan ewidencji mienia na dzień: " + simpleDateFormat.format(new Date()));
-		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new ByteArrayOutputStream());
-		BeanWriter out = factory.createWriter("Dzialki", outputStreamWriter);
+		String fName = "ewidencjaDzialek_"+stanNa+".csv";
+		File ewidencjaDzialekFile = new File(fName);
+		BeanWriter out = factory.createWriter("Dzialki", ewidencjaDzialekFile);
 		out.write("komunikat", komunikat);
-		out.write("header", new Dzialka());
-		for (Dzialka dzialka : dzialkaList) {
+		out.write("header", new DzialkaHistory());
+		for (DzialkaHistory dzialka : dzialkaList) {
 			out.write(dzialka);
 		}
 		out.flush();
@@ -257,9 +266,12 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 		responseHeaders.set("charset", "utf-8");
 		responseHeaders.setContentType(MediaType.valueOf("text/html"));
-		byte[] outputStream = outputStreamWriter.toString().getBytes();
+		byte[] outputStream = new byte[(int) ewidencjaDzialekFile.length()]; 
+		  FileInputStream fis = new FileInputStream(ewidencjaDzialekFile);
+		  fis.read(outputStream); //read file into bytes[]
+		  fis.close();
 		responseHeaders.setContentLength(outputStream.length);
-		responseHeaders.set("Content-disposition", "attachment; filename=ewidencjaMienia.csv");
+		responseHeaders.set("Content-disposition", "attachment; filename=" + fName);
 		return new ResponseEntity<byte[]>(outputStream, responseHeaders, HttpStatus.OK);
 	}
 
