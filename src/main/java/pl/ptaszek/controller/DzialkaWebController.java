@@ -252,7 +252,7 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		StreamFactory factory = StreamFactory.newInstance();
 		factory.load(this.getClass().getClassLoader().getResourceAsStream("ewidencjaDzialekMapowanie.xml"));
 		Komunikat komunikat = new Komunikat();
-		komunikat.setKomunikat("Stan ewidencji mienia na dzień: " + simpleDateFormat.format(new Date()));
+		komunikat.setKomunikat("Stan ewidencji mienia na dzień: " + stanNa);
 		String fName = "ewidencjaDzialek_"+stanNa+".csv";
 		File ewidencjaDzialekFile = new File(fName);
 		BeanWriter out = factory.createWriter("Dzialki", ewidencjaDzialekFile);
