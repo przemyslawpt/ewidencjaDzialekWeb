@@ -17,10 +17,11 @@
         <img id="herb" src="img/herb.jpeg"></img>
     </div>
     <div id="Tytul">
-        Mienie 1.0. Ewidencja mienia Gminy Pokój
+        DZIAŁKI GP v.1. Ewidencja mienia Gminy Pokój
     </div>
     <div id="Podtytul">		
-        Wyniki wyszukiwania dla ewidencja mienia.
+        Wyniki wyszukiwania dla ewidencja mienia. <br/> Stan na dzień: ${stanNaDzien}
+         <input type="submit" id="generuj" value="Generuj" />
 	</div>
 	<div id="menu">
 		<table>

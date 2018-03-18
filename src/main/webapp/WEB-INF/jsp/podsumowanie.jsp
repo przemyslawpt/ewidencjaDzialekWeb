@@ -17,7 +17,7 @@
 	<div>
 		<img id="herb" src="img/herb.jpeg"></img>
 	</div>
-	<div id="Tytul">Mienie 1.0. Ewidencja mienia Gminy Pokój</div>
+	<div id="Tytul">DZIAŁKI GP v.1. Ewidencja mienia Gminy Pokój</div>
 	<form method="get" action="podsumowanieHistory">
 		<div id="Podtytul">Stan na dzień:
 		  <input type="text" id="stanNaDzien" name="stanNaDzien" value="${stanNaDzien}"/>

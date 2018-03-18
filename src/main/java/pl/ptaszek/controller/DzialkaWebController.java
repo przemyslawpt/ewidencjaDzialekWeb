@@ -134,8 +134,10 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 							planWykorzystania, uwagi, skladKomisji));
 		}
 		if (stanNaDzienAsDate != null) {
+			model.addObject("stanNaDzien", stanNaDzien);
 			model.setViewName("listaDzialekFiltrData");
-		}else {
+		} else {
+			model.addObject("stanNaDzien", simpleDateFormat.format(new Date()));
 			model.setViewName("listaDzialekFiltr");
 		}
 		return model;
@@ -228,6 +230,7 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		List<Dzialka> result = dzialkaService.list();
 		model.addObject("dzialkaList", result);
 		model.addObject("filtrowanie", true);
+		model.addObject("stanNaDzien", simpleDateFormat.format(new Date()));
 		model.setViewName("listaDzialek");
 		return model;
 	}
@@ -255,7 +258,7 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		byte[] outputStream = outputStreamWriter.toString().getBytes();
 		responseHeaders.setContentLength(outputStream.length);
 		responseHeaders.set("Content-disposition", "attachment; filename=ewidencjaMienia.csv");
-		return new ResponseEntity<byte[]>(outputStream, responseHeaders, HttpStatus.OK);
+		return new ResponseEntity<OutputStreamWriter>(outputStream, responseHeaders, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
@@ -286,6 +289,7 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		ModelAndView model = new ModelAndView();
 		List<Dzialka> result = dzialkaService.list();
 		model.addObject("dzialkaList", result);
+		model.addObject("stanNaDzien", simpleDateFormat.format(new Date()));
 		model.setViewName("listaDzialek");
 		return model;
 	}
@@ -324,7 +328,7 @@ private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		return model;
 	}
 	
-	@RequestMapping(value = "/kopiuj", method = RequestMethod.GET)
+	//@RequestMapping(value = "/kopiuj", method = RequestMethod.GET)
 	public ModelAndView kopiuj() {
 		List<Dzialka> result = dzialkaService.list();
 		dzialkaService.copyAll(result);
